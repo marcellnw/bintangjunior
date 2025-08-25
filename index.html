@@ -3,29 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bimbel Islami – Belajar dengan Prestasi & Akhlak</title>
+  <title>Bimbel Online & Offline Islami – Program Belajar</title>
+  <meta name="description" content="Program Belajar Bimbel Islami: Online & Offline, kelas semi privat, fokus prestasi dan akhlak. SD/MI, SMP/MTs, SMA/SMK/MA." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Bimbel Islami</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#program">Program</a>
-      <a href="#tentang">Tentang</a>
-      <a href="#testimoni">Testimoni</a>
-      <a href="#kontak">Kontak</a>
-    </nav>
+  <!-- === Header / Navbar === -->
+  <header class="topbar">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Bintang Pelajar</span>
+      </div>
+      <button class="burger" aria-label="Buka menu" onclick="toggleMenu()">☰</button>
+      <nav class="menu" id="menu">
+        <a href="#home">Home</a>
+        <a href="#program">Program</a>
+        <a href="#paket">Paket</a>
+        <a href="#konsultasi">Konsultasi</a>
+        <a href="#kontak">Kontak</a>
+        <a class="btn-cta" href="#konsultasi">Daftar Bimbel</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Belajar dengan Prestasi & Akhlak</h1>
-      <p>Bimbingan belajar Islami untuk SD, SMP, SMA – Online & Offline</p>
-      <a href="#kontak" class="btn">Daftar Sekarang</a>
+  <!-- === Hero === -->
+  <section class="hero" id="home">
+    <div class="hero-wrap">
+      <div class="fade-up">
+        <h1>Persiapan Prestasi dan Akhlak dengan Bimbel Islami</h1>
+        <p>Bersiap lebih awal untuk meraih prestasi tinggi di Tahun Pengajaran 2025/2026 bersama Bimbel Islami Bintang Pelajar.</p>
+        <p>Pilihan program Online maupun Offline sesuai target, sekaligus membentuk akhlak terbaik sesuai syariat Islam.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#program">Program Belajar</a>
+          <a class="btn outline" href="#konsultasi">Lihat Program Bimbel</a>
+        </div>
+      </div>
+      <div class="fade-up">
+        <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop" 
+             alt="Ilustrasi belajar" 
+             style="width:100%;border-radius:18px;box-shadow:var(--shadow)">
+      </div>
     </div>
   </section>
+
+  <!-- === Form Konsultasi / Pendaftaran === -->
+  <section id="konsultasi">
+    <div class="container">
+      <h2 class="section-title fade-up">Jadwalkan Konsultasi Program</h2>
+      <p class="section-lead fade-up">Isi data diri dan konsultan pendidikan kami akan segera menghubungi Ayah/Bunda.</p>
+
+      <form class="form fade-up" id="minatForm" onsubmit="return handleSubmit(event)">
+        <!-- 1 Nama Lengkap -->
+        <div class="q">
+          <div class="no">1</div>
+          <div>
+            <label for="nama">Nama Lengkap *</label>
+            <input class="input" id="nama" name="Nama Lengkap" required placeholder="Tulis jawaban Anda di sini">
+          </div>
+        </div>
+
+        <!-- 2 Kelas -->
+        <div class="q">
+          <div class="no">2</div>
+          <div>
+            <label for="kelas">Saat ini Ananda Kelas Berapa? *</label>
+            <select id="kelas" name="Kelas" required>
+              <option value="">- Pilih Kelas -</option>
+              <option>1 SD</option><option>2 SD</option><option>3 SD</option>
+              <option>4 SD</option><option>5 SD</option><option>6 SD</option>
+              <option>7 SMP</option><option>8 SMP</option><option>9 SMP</option>
+              <option>10 SMA</option><option>11 SMA</option><option>12 SMA</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 9 Tujuan -->
+        <div class="q">
+          <div class="no">9</div>
+          <div>
+            <label for="tujuan">Tujuan PTN/SMP-SMA Pilihan *</label>
+            <input class="input" id="tujuan" name="Tujuan" required placeholder="Tulis jawaban Anda di sini">
+          </div>
+        </div>
+
+        <!-- 10 Catatan Tambahan -->
+        <div class="q">
+          <div class="no">10</div>
+          <div>
+            <label for="catatan">Catatan Tambahan (opsional)</label>
+            <textarea class="input" id="catatan" name="Catatan" placeholder="Tuliskan catatan tambahan jika ada"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
