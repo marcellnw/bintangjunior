@@ -137,6 +137,33 @@ footer p { margin-top: 1rem; font-size: 0.9rem; }
 }
 img { max-width: 100%; height: auto; display: block; }
 
+    /* Biar teks tidak melebar di HP */
+.hero h1, 
+.hero p,
+section h2, 
+.program p, 
+.promo p, 
+.card p, 
+.faq-item p {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+  text-align: center; /* bisa diganti justify kalau mau rata kanan-kiri */
+}
+
+/* khusus paragraf detail */
+.program p, .promo p, .card p, .faq-item p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive tambahan */
+@media (max-width: 768px) {
+  section { padding: 3rem 1.2rem; }
+  .programs, .promos, .testimoni, .faq { gap: 1rem; }
+}
+
   </style>
 </head>
 <body>
