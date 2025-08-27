@@ -24,8 +24,8 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     header .brand { display: flex; align-items: center; gap: 10px; }
-    header .brand img { height: 45px; width: auto; }
-    header .brand span { font-size: 1.3rem; font-weight: bold; }
+    header .brand img { height: 50px; width: auto; }
+    header .brand span { font-size: 1.4rem; font-weight: bold; }
     nav { display: flex; gap: 1.5rem; }
     nav a { color: white; text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
     nav a:hover { color: #ffb703; }
@@ -33,9 +33,10 @@
 
     /* Animasi melayang logo hero */
     .hero-logo {
-      width: 180px;
-      max-width: 60%;
-      margin-bottom: 1rem;
+      width: 260px;   /* diperbesar lagi */
+      max-width: 80%;
+      margin: 0 auto 1.5rem auto; /* center */
+      display: block;
       animation: float 3s ease-in-out infinite;
     }
     @keyframes float {
@@ -51,22 +52,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
       text-align: center;
+      color: white;
       background: linear-gradient(rgba(0,74,173,0.7), rgba(0,74,173,0.7)),
         url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250827160044152.jpg') center/cover no-repeat;
       overflow: hidden;
+      padding: 2rem; /* agar ada jarak di layar kecil */
     }
-    .hero h1 { font-size: 2.6rem; margin-bottom: 1rem; font-weight: 700; }
-    .hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; font-weight: 700; }
+    .hero p { font-size: 1.3rem; margin-bottom: 1.8rem; }
     .btn {
-      padding: 0.8rem 1.5rem;
+      padding: 1rem 2rem;
       background: #ffb703;
       color: black;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      font-size: 1.1rem;
     }
     .btn:hover { background: #ffa500; transform: scale(1.05); }
 
@@ -76,7 +79,8 @@
 
     /* Background ke-2 untuk section program */
     #program {
-      background: url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250827162814086.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,74,173,0.6), rgba(0,74,173,0.6)),
+        url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250827162814086.jpg') center/cover no-repeat;
       color: #fff;
     }
     #program h2 { color: #ffb703; }
@@ -113,18 +117,16 @@
       width: calc(140% + 1.3px);
       height: 80px;
     }
-    .wave .shape-fill {
-      fill: #f8f9fc;
-    }
+    .wave .shape-fill { fill: #f8f9fc; }
 
     /* Responsive */
     @media (max-width: 768px) {
       nav { display: none; flex-direction: column; background: #004aad; position: absolute; top: 65px; right: 0; width: 200px; padding: 1rem; }
       nav.show { display: flex; }
       .burger { display: block; }
-      .hero h1 { font-size: 1.9rem; }
+      .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
-      .hero-logo { width: 120px; }
+      .hero-logo { width: 180px; }
     }
 
     img { max-width: 100%; height: auto; display: block; }
