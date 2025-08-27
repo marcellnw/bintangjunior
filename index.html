@@ -1,827 +1,163 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- ====== Meta Dasar ====== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bimba Bintang Junior ex Rainbow Kids</title>
-  <meta name="description" content="Bimbel Islami Bintang Pelajar: Program Online & Offline, kelas semi privat, fokus prestasi akademik & akhlak. Untuk SD/MI, SMP/MTs, SMA/SMK/MA.">
-  <link rel="canonical" href="https://contoh-domain-anda.id/">
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- ====== Open Graph / Social ====== -->
-  <meta property="og:title" content="Bimba Bintang Junior ex Rainbow Kids">
-  <meta property="og:description" content="Kelas semi privat, fokus prestasi & akhlak. SD/MI, SMP/MTs, SMA/SMK/MA.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop">
-  <meta property="og:locale" content="id_ID">
-
-  <!-- ====== Font ====== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- ====== Structured Data (SEO) ====== -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"EducationalOrganization",
-    "name":"Bintang junior",
-    "url":"https://contoh-domain-anda.id/",
-    "logo":"https://contoh-domain-anda.id/logo.png",
-    "sameAs":[
-      "https://instagram.com/bintangjunior",
-      "https://www.youtube.com/@bintangjunior"
-    ],
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Jl. Cimanggu Permai I No.2, Kedung Jaya, Tanah Sereal",
-      "addressLocality":"Kota Bogor",
-      "addressRegion":"Jawa Barat",
-      "postalCode":"16122",
-      "addressCountry":"ID"
-    },
-    "telephone":"+62 822-2666-8651"
-  }
-  </script>
-
+  <title>Bintang Pelajar - Bimbel Online & Offline</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <style>
-    /* =========================================================
-       VARIABEL & RESET
-       ---------------------------------------------------------
-       Catatan: semua warna & radius dikontrol via variabel agar
-       mudah disesuaikan ke brand guideline.
-    ========================================================= */
-    :root{
-      --primary:#0a3d62;       /* Biru tua brand */
-      --primary-600:#0f5385;   /* Biru aksen */
-      --secondary:#f2b705;     /* Emas CTA */
-      --secondary-600:#d49f04; /* Emas hover */
-      --bg:#ffffff;
-      --muted:#f5f7fb;
-      --text:#1f2937;
-      --text-light:#6b7280;
-      --radius:14px;
-      --shadow:0 10px 28px rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{
-      margin:0; padding:0;
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto;
-      scroll-behavior:smooth;
-      color:var(--text); background:var(--bg);
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f8f9fc; color: #333; }
+    header { background: #004aad; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    header .brand { display: flex; align-items: center; gap: 10px; }
+    header .brand span { font-size: 1.2rem; font-weight: bold; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { color: white; text-decoration: none; font-size: 0.95rem; }
+    .burger { display: none; background: none; border: none; color: white; font-size: 1.5rem; }
 
-    /* =========================================================
-       UTILITAS AKSESIBILITAS
-       --------------------------------------------------------- */
-    .skip-link{
-      position:absolute; left:-9999px; top:auto;
-      width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus{
-      left:12px; top:12px; width:auto; height:auto;
-      background:#fff; color:#000; padding:8px 10px; border-radius:8px;
-      z-index:2000;
-    }
+    /* Hero */
+    .hero { position: relative; height: 100vh; display: flex; justify-content: center; align-items: center; color: white; text-align: center; background: linear-gradient(rgba(0,74,173,0.8), rgba(0,74,173,0.8)), url('https://source.unsplash.com/1600x900/?education,books') center/cover; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .btn { padding: 0.7rem 1.4rem; background: #ffb703; color: black; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    .btn:hover { background: #ffa500; }
 
-    /* =========================================================
-/* =========================================================
-   HEADER / NAVBAR
-   --------------------------------------------------------- */
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--primary);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,.15);
-}
-.nav {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 20px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.brand .logo {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: linear-gradient(135deg,#0a3d62,#145a86);
-}
-.brand span {
-  font-weight: 800;
-  letter-spacing: .2px;
-}
-.menu {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-.menu a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: .95;
-  position: relative;
-}
-.menu a.active::after {
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-6px;
-  height:3px;
-  background:var(--secondary);
-  border-radius:3px;
-}
-.menu a:hover { color: var(--secondary); }
-.btn-cta {
-  background: var(--secondary);
-  color: #111;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 800;
-  text-decoration: none;
-}
-.btn-cta:hover { filter: brightness(.96); }
-.burger {
-  display: none;
-  background: transparent;
-  border: 0;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-}
+    /* Section */
+    section { padding: 4rem 2rem; max-width: 1200px; margin: auto; }
+    section h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #004aad; }
 
-/* =========================================================
-   RESPONSIVE NAV
-   --------------------------------------------------------- */
-@media (max-width:760px) {
-  .nav { padding: 12px; }
+    .programs, .testimoni, .faq { display: grid; gap: 1.5rem; }
+    .programs { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .program { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+    .program:hover { transform: translateY(-5px); }
 
-  /* sembunyikan menu default */
-  .menu {
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    position: absolute;
-    top: 100%;     /* muncul di bawah header */
-    right: 20px;   /* pojok kanan */
-    background: var(--primary);
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,.25);
-  }
+    .testimoni { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .card p { font-style: italic; margin-bottom: 1rem; }
+    .card h4 { color: #004aad; }
 
-  /* menu aktif setelah toggle */
-  .menu.active { display: flex; }
+    .faq-item { background: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); cursor: pointer; }
+    .faq-item h4 { display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
+    .faq-item p { display: none; margin-top: 0.5rem; font-size: 0.9rem; }
+    .faq-item.active p { display: block; }
 
-  .burger { display: block; }
-}
+    footer { background: #004aad; color: white; padding: 2rem; text-align: center; }
+    footer p { margin-top: 1rem; font-size: 0.9rem; }
 
-    /* =========================================================
-       HERO
-       --------------------------------------------------------- */
-    .hero{
-      background:
-        linear-gradient(rgba(10,61,98,.85),rgba(10,61,98,.85)),
-        url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
-      color:#fff;
-    }
-    .hero-wrap{max-width:1200px; margin:auto; padding:86px 20px 96px; display:grid; grid-template-columns:1.2fr .8fr; gap:36px; align-items:center}
-    .hero h1{font-size:clamp(28px,4vw,46px); line-height:1.2; margin:0 0 14px}
-    .hero p{margin:0 0 18px; opacity:.95}
-    .hero-ctas{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:800; letter-spacing:.2px; transform:translateY(0); transition:transform .2s ease}
-    .btn:hover{transform:translateY(-2px)}
-    .btn.primary{background:var(--secondary); color:#111}
-    .btn.primary:hover{background:var(--secondary-600)}
-    .btn.outline{border:2px solid #fff; color:#fff}
-
-    /* =========================================================
-       SECTIONS & TYPO
-       --------------------------------------------------------- */
-    section{padding:68px 20px}
-    .container{max-width:1200px; margin:auto}
-    .section-title{text-align:center; margin-bottom:10px; color:var(--primary); font-size:clamp(22px,2.5vw,32px)}
-    .section-lead{text-align:center; color:var(--text-light); max-width:820px; margin:0 auto 36px}
-
-    /* =========================================================
-       PROGRAM UNGGULAN + FILTER
-       --------------------------------------------------------- */
-    .switch{display:flex; gap:10px; justify-content:center; margin-bottom:20px; flex-wrap:wrap}
-    .pill{padding:10px 16px; border-radius:999px; border:1px solid #d1d5db; background:#fff; color:#111; cursor:pointer; font-weight:700}
-    .pill.active{background:var(--primary); border-color:var(--primary); color:#fff}
-
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .card{
-      background:#fff; border:1px solid #e5e7eb; border-radius:var(--radius);
-      box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column;
-      transform:translateY(0); transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .card:hover{transform:translateY(-4px); box-shadow:0 16px 36px rgba(0,0,0,.12)}
-    .card img{width:100%; height:180px; object-fit:cover}
-    .card .body{padding:18px}
-    .tag{display:inline-block; background:#eef2ff; color:#4338ca; font-weight:800; border-radius:999px; padding:6px 10px; font-size:12px; margin-bottom:8px}
-    .card h3{margin:6px 0 8px; color:var(--primary-600)}
-    .card p{color:var(--text-light)}
-    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .actions .a{padding:10px 12px; border-radius:10px; font-weight:800; text-decoration:none}
-    .a.neutral{background:#fff; border:1px solid #e5e7eb; color:#111}
-    .a.cta{background:var(--secondary); color:#111}
-
-    details{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:12px}
-    summary{cursor:pointer; font-weight:800; color:var(--primary)}
-
-    /* =========================================================
-       PAKET PEMBELAJARAN
-       --------------------------------------------------------- */
-    .split{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-    .paket{background:var(--muted); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .paket h4{margin:0 0 8px; color:var(--primary)}
-    .paket p{margin:0; color:var(--text-light)}
-
-    /* =========================================================
-       FORM KONSULTASI (10 pertanyaan)
-       --------------------------------------------------------- */
-    .form{max-width:860px; margin:auto; background:#fff; border:1px solid #e5e7eb; border-radius:16px; box-shadow:var(--shadow); padding:22px}
-    .q{display:grid; grid-template-columns:40px 1fr; gap:12px; align-items:start; margin-bottom:14px}
-    .q .no{width:40px; height:40px; border-radius:10px; background:var(--muted); display:flex; align-items:center; justify-content:center; font-weight:900; color:var(--primary)}
-    .q label{font-weight:700}
-    .input, select, textarea{width:100%; padding:12px; border:1px solid #d1d5db; border-radius:10px; font:inherit}
-    .helper{font-size:12px; color:var(--text-light)}
-    .submit{margin-top:14px; display:flex; gap:12px; flex-wrap:wrap}
-
-    /* =========================================================
-       FOOTER
-       --------------------------------------------------------- */
-    footer{background:var(--primary); color:#fff; padding:38px 20px; margin-top:36px}
-    .foot{max-width:1200px; margin:auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:20px}
-    .foot h5{margin:0 0 10px}
-    .foot a{color:#fff; text-decoration:none; opacity:.92}
-    .foot a:hover{color:var(--secondary)}
-    .copyright{margin-top:22px; text-align:center; opacity:.85}
-
-    /* =========================================================
-       ANIMASI REVEAL (masuk saat discroll)
-       --------------------------------------------------------- */
-    .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
-    .reveal.show{opacity:1; transform:none}
-
-    /* =========================================================
-       RESPONSIVE
-       --------------------------------------------------------- */
-    @media (max-width:1024px){ .grid{grid-template-columns:repeat(2,1fr)} .split{grid-template-columns:1fr} }
-    @media (max-width:760px){
-      .nav{padding:12px}
-      .menu{display:none}
-      .burger{display:block}
-      .hero-wrap{grid-template-columns:1fr; padding:110px 20px 80px}
-      .grid{grid-template-columns:1fr}
-      .foot{grid-template-columns:1fr 1fr}
-    }
-
-    /* =========================================================
-       PREFER REDUCED MOTION (aksesibilitas)
-       --------------------------------------------------------- */
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto}
-      .reveal{transition:none}
-      .btn, .card{transition:none}
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { display: none; flex-direction: column; background: #004aad; position: absolute; top: 70px; right: 0; width: 200px; padding: 1rem; }
+      nav.show { display: flex; }
+      .burger { display: block; }
+      .hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <!-- ====== Skip ke Konten (aksesibilitas keyboard) ====== -->
-  <a href="#home" class="skip-link">Lewati ke konten utama</a>
-
-  <!-- ====== Header / Navbar ====== -->
-  <header class="topbar" role="banner">
-    <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <span>Bintang Pelajar</span>
-      </div>
-      <button class="burger" aria-label="Buka menu navigasi" aria-controls="menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-      <nav class="menu" id="menu" role="navigation">
-        <a href="home.html">Home</a>
-        <a href="program.html">Program</a>
-        <a href="paket.html">Paket</a>
-        <a href="konsultasi.html">Konsultasi</a>
-        <a href="kontak.html">Kontak</a>
-        <a class="btn-cta" href="#konsultasi">Daftar Bimbel</a>
-      </nav>
+  <!-- Navbar -->
+  <header>
+    <div class="brand">
+      <img src="https://raw.githubusercontent.com/github/explore/main/topics/education/education.png" alt="Logo" width="35">
+      <span>Bintang Pelajar</span>
     </div>
+    <button class="burger" onclick="toggleMenu()">☰</button>
+    <nav id="menu">
+      <a href="#program">Program</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
   </header>
 
-  <!-- ====== Hero ====== -->
-  <section class="hero" id="home" aria-label="Bagian pembuka">
-    <div class="hero-wrap">
-      <div>
-        <h1 class="reveal">Persiapan Prestasi dan Akhlak dengan Bimbel Islami</h1>
-        <p class="reveal">Bersiap lebih awal untuk meraih prestasi tinggi di Tahun Pengajaran 2025/2026 bersama Bimbel Islami Bintang Pelajar.</p>
-        <p class="reveal">Fleksibel <strong>Online</strong> maupun <strong>Offline</strong> sesuai target—bersamaan pembinaan akhlak sesuai syariat.</p>
-        <div class="hero-ctas reveal">
-          <a class="btn primary" href="#program">Program Belajar</a>
-          <a class="btn outline" href="#konsultasi">Lihat Program Bimbel</a>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div data-aos="zoom-in">
+      <h1>Bimbingan Belajar Terbaik untuk Masa Depan Cerah</h1>
+      <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang Pelajar.</p>
+      <a href="#program" class="btn">Lihat Program</a>
+    </div>
+  </section>
+
+  <!-- Program -->
+  <section id="program">
+    <h2 data-aos="fade-up">Program Kami</h2>
+    <div class="programs">
+      <div class="program" data-aos="fade-right">
+        <h3>Bimbel Online</h3>
+        <p>Akses materi dan kelas interaktif dari rumah, fleksibel sesuai jadwal Anda.</p>
       </div>
-      <div>
-        <!-- Catatan: loading="lazy" untuk performa -->
-        <img loading="lazy" src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop" alt="Ilustrasi siswa belajar" style="width:100%;border-radius:18px;box-shadow:var(--shadow)">
+      <div class="program" data-aos="fade-up">
+        <h3>Bimbel Offline</h3>
+        <p>Belajar tatap muka bersama tutor berpengalaman di berbagai kota.</p>
+      </div>
+      <div class="program" data-aos="fade-left">
+        <h3>Private Class</h3>
+        <p>Pembelajaran personal dengan fokus penuh pada kebutuhan siswa.</p>
       </div>
     </div>
   </section>
 
-  <!-- ====== Program Unggulan ====== -->
-  <section id="program" aria-labelledby="program-title">
-    <div class="container">
-      <h2 id="program-title" class="section-title reveal">Program Unggulan</h2>
-      <p class="section-lead reveal">Pilih jenjang sekolah dan program yang sesuai dengan kebutuhan ananda.</p>
-
-      <!-- Filter jenjang -->
-      <div class="switch reveal" role="tablist" aria-label="Pilih Jenjang">
-        <button class="pill active" data-filter="sd" role="tab" aria-selected="true">SD/MI</button>
-        <button class="pill" data-filter="smp" role="tab" aria-selected="false">SMP/MTs</button>
-        <button class="pill" data-filter="sma" role="tab" aria-selected="false">SMA/SMK/MA</button>
+  <!-- Testimoni -->
+  <section id="testimoni">
+    <h2 data-aos="fade-up">Apa Kata Mereka?</h2>
+    <div class="testimoni">
+      <div class="card" data-aos="flip-left">
+        <p>"Belajar jadi lebih semangat, tutornya sabar dan materi mudah dipahami!"</p>
+        <h4>- Andi, SMA</h4>
       </div>
-
-      <!-- Kartu program -->
-      <div class="grid" id="programGrid">
-        <!-- 6 SD - TKA & SMP Favorit -->
-        <article class="card reveal" data-cat="sd" aria-label="Program 6 SD TKA & SMP Favorit">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1600&auto=format&fit=crop" alt="Kelas 6 SD">
-          <div class="body">
-            <span class="tag">6 SD</span>
-            <h3>Khusus Kelas 6 – Persiapan TKA & Masuk SMP Favorit</h3>
-            <p>Tersedia Online & Offline. Kelas Islami (Ikhwan & Akhwat terpisah). Variasi kelas mulai 1–5–15 siswa*.</p>
-            <div class="actions">
-              <a href="#detail-6sd-tka" class="a neutral" onclick="openDetails('detail-6sd-tka')">Detail Paket</a>
-              <a href="#metode-umum" class="a neutral" onclick="openDetails('metode-umum')">Metode Belajar</a>
-              <a href="#fasilitas-umum" class="a neutral" onclick="openDetails('fasilitas-umum')">Fasilitas Belajar</a>
-              <a href="#konsultasi" class="a cta">Daftar Sekarang</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 4–6 SD - Rapor & Prestasi -->
-        <article class="card reveal" data-cat="sd">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1555529771-35a38fb3c7b3?q=80&w=1600&auto=format&fit=crop" alt="Kelas 4-6 SD">
-          <div class="body">
-            <span class="tag">4–6 SD</span>
-            <h3>Peningkatan Nilai Rapor & Siap Jalur Prestasi</h3>
-            <p>Masa program s.d. 13 Juni 2026. Online & Offline. Kelas Islami terpisah Ikhwan/Akhwat. Variasi kelas 1–5–15 siswa*.</p>
-            <div class="actions">
-              <a href="#detail-46sd" class="a neutral" onclick="openDetails('detail-46sd')">Detail Paket</a>
-              <a href="#metode-umum" class="a neutral" onclick="openDetails('metode-umum')">Metode Belajar</a>
-              <a href="#fasilitas-umum" class="a neutral" onclick="openDetails('fasilitas-umum')">Fasilitas Belajar</a>
-              <a href="#konsultasi" class="a cta">Daftar Sekarang</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 6 SD - Labschool -->
-        <article class="card reveal" data-cat="sd smp">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1596495578065-8e1d0cae1d5c?q=80&w=1600&auto=format&fit=crop" alt="Labschool">
-          <div class="body">
-            <span class="tag">6 SD</span>
-            <h3>Persiapan Masuk SMP Labschool</h3>
-            <p>Online & Offline. Kelas Islami terpisah Ikhwan/Akhwat. Variasi kelas mulai 1 kelas 5 siswa*.</p>
-            <div class="actions">
-              <a href="#detail-labschool" class="a neutral" onclick="openDetails('detail-labschool')">Detail Paket</a>
-              <a href="#metode-umum" class="a neutral" onclick="openDetails('metode-umum')">Metode Belajar</a>
-              <a href="#fasilitas-umum" class="a neutral" onclick="openDetails('fasilitas-umum')">Fasilitas Belajar</a>
-              <a href="#konsultasi" class="a cta">Daftar Sekarang</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 6 SD - Al Azhar -->
-        <article class="card reveal" data-cat="sd smp">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1600880292089-90e7e86be1b4?q=80&w=1600&auto=format&fit=crop" alt="Al Azhar">
-          <div class="body">
-            <span class="tag">6 SD</span>
-            <h3>Persiapan Masuk SMP Al Azhar</h3>
-            <p>Online & Offline. Kelas Islami terpisah Ikhwan/Akhwat. Variasi kelas mulai 1 kelas 5 siswa*.</p>
-            <div class="actions">
-              <a href="#detail-alazhar" class="a neutral" onclick="openDetails('detail-alazhar')">Detail Paket</a>
-              <a href="#metode-umum" class="a neutral" onclick="openDetails('metode-umum')">Metode Belajar</a>
-              <a href="#fasilitas-umum" class="a neutral" onclick="openDetails('fasilitas-umum')">Fasilitas Belajar</a>
-              <a href="#konsultasi" class="a cta">Daftar Sekarang</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 6 SD - BP IBS -->
-        <article class="card reveal" data-cat="sd smp">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop" alt="BP IBS">
-          <div class="body">
-            <span class="tag">6 SD</span>
-            <h3>Persiapan Masuk SMP BP IBS</h3>
-            <p>Online & Offline. Kelas Islami terpisah Ikhwan/Akhwat. Variasi kelas mulai 1 kelas 5 siswa*.</p>
-            <div class="actions">
-              <a href="#detail-bpibs" class="a neutral" onclick="openDetails('detail-bpibs')">Detail Paket</a>
-              <a href="#metode-umum" class="a neutral" onclick="openDetails('metode-umum')">Metode Belajar</a>
-              <a href="#fasilitas-umum" class="a neutral" onclick="openDetails('fasilitas-umum')">Fasilitas Belajar</a>
-              <a href="#konsultasi" class="a cta">Daftar Sekarang</a>
-            </div>
-          </div>
-        </article>
+      <div class="card" data-aos="flip-right">
+        <p>"Nilai ujianku naik drastis setelah ikut program ini, terima kasih Bintang Pelajar!"</p>
+        <h4>- Siti, SMP</h4>
       </div>
-
-      <!-- Accordion Details (shared) -->
-      <div class="container" style="margin-top:22px;display:grid;gap:12px">
-        <details id="detail-6sd-tka"><summary>Detail Paket – 6 SD (TKA & SMP Favorit)</summary>
-          <div>
-            <ul>
-              <li>Frekuensi belajar terstruktur (mingguan)</li>
-              <li>Bidang studi sesuai kurikulum & kebutuhan seleksi</li>
-              <li>Try Out & evaluasi berkala, laporan kemajuan</li>
-            </ul>
-          </div>
-        </details>
-        <details id="detail-46sd"><summary>Detail Paket – 4–6 SD (Rapor & Jalur Prestasi)</summary>
-          <div>
-            <ul>
-              <li>Masa program hingga 13 Juni 2026</li>
-              <li>Peningkatan nilai rapor & kesiapan jalur prestasi</li>
-              <li>Kelas 5/15/25 siswa sesuai kebutuhan</li>
-            </ul>
-          </div>
-        </details>
-        <details id="detail-labschool"><summary>Detail Paket – Labschool</summary>
-          <div>
-            <ul>
-              <li>Target seleksi Labschool dengan paket try out khusus</li>
-              <li>Strategi pengerjaan soal & simulasi tes</li>
-            </ul>
-          </div>
-        </details>
-        <details id="detail-alazhar"><summary>Detail Paket – Al Azhar</summary>
-          <div>
-            <ul>
-              <li>Materi seleksi & pembiasaan adab Islami</li>
-              <li>Evaluasi berkala & pendampingan konseling</li>
-            </ul>
-          </div>
-        </details>
-        <details id="detail-bpibs"><summary>Detail Paket – BP IBS</summary>
-          <div>
-            <ul>
-              <li>Persiapan komprehensif jalur masuk boarding school</li>
-              <li>Latihan intensif dan laporan perkembangan</li>
-            </ul>
-          </div>
-        </details>
-
-        <details id="metode-umum"><summary>Metode Belajar</summary>
-          <div>
-            <ul>
-              <li>Live teaching interaktif (Online) & tatap muka (Offline)</li>
-              <li>Kelompok kecil semi privat untuk fokus maksimal</li>
-              <li>Pemisahan kelas Ikhwan & Akhwat</li>
-            </ul>
-          </div>
-        </details>
-        <details id="fasilitas-umum"><summary>Fasilitas Belajar</summary>
-          <div>
-            <ul>
-              <li>Modul belajar, LMS, laporan hasil evaluasi</li>
-              <li>Konsultasi akademik & bimbingan konseling</li>
-            </ul>
-          </div>
-        </details>
+      <div class="card" data-aos="zoom-in">
+        <p>"Fleksibel banget, bisa belajar online kapan saja tanpa takut ketinggalan."</p>
+        <h4>- Budi, Mahasiswa</h4>
       </div>
     </div>
   </section>
 
-  <!-- ====== Paket Pembelajaran ====== -->
-  <section id="paket" aria-labelledby="paket-title">
-    <div class="container">
-      <h2 id="paket-title" class="section-title reveal">Paket Pembelajaran</h2>
-      <div class="split">
-        <div class="paket reveal">
-          <h4>Pembelajaran Online</h4>
-          <p>Bimbel Online Live Interactive (BION BP): Live teaching guru berpengalaman, dipercaya di 36 provinsi & 14 negara. Akses LMS kapan saja.</p>
-          <a href="#konsultasi" class="btn primary" style="margin-top:12px;display:inline-block">Lihat Program</a>
-        </div>
-        <div class="paket reveal">
-          <h4>Pembelajaran Offline</h4>
-          <p>Belajar seru di cabang terdekat—lingkungan Islami & kondusif. Pembinaan akhlak terpuji sebagai suplemen harian.</p>
-          <a href="#kontak" class="btn outline" style="margin-top:12px;display:inline-block">Cek Lokasi Cabang</a>
-        </div>
+  <!-- FAQ -->
+  <section id="faq">
+    <h2 data-aos="fade-up">Pertanyaan yang Sering Diajukan</h2>
+    <div class="faq">
+      <div class="faq-item" onclick="toggleFAQ(this)" data-aos="fade-right">
+        <h4>Bagaimana cara mendaftar? <span>+</span></h4>
+        <p>Pendaftaran bisa dilakukan online melalui website atau langsung di kantor kami.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFAQ(this)" data-aos="fade-left">
+        <h4>Apakah ada kelas percobaan? <span>+</span></h4>
+        <p>Ya, kami menyediakan kelas trial gratis untuk siswa baru.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFAQ(this)" data-aos="fade-right">
+        <h4>Apakah bisa pindah dari kelas offline ke online? <span>+</span></h4>
+        <p>Bisa, sistem kami fleksibel sesuai kebutuhan siswa.</p>
       </div>
     </div>
   </section>
 
-  <!-- ====== Form Konsultasi / Pendaftaran (10 pertanyaan) ====== -->
-  <section id="konsultasi" aria-labelledby="konsultasi-title">
-    <div class="container">
-      <h2 id="konsultasi-title" class="section-title reveal">Jadwalkan Konsultasi Program</h2>
-      <p class="section-lead reveal">Isi data diri dan konsultan pendidikan kami akan segera menghubungi Ayah/Bunda.</p>
-
-      <!-- Catatan: ganti nomor WA admin pada variabel CONFIG di bawah -->
-      <form class="form" id="minatForm" onsubmit="return handleSubmit(event)" aria-describedby="keterangan-form">
-        <p id="keterangan-form" class="helper" style="margin-top:-6px;margin-bottom:10px">
-          Kolom bertanda * wajib diisi. Data dikirim ke WhatsApp admin untuk tindak lanjut.
-        </p>
-
-        <!-- 1 Nama Lengkap -->
-        <div class="q"><div class="no">1</div><div>
-          <label for="nama">Nama Lengkap *</label>
-          <input class="input" id="nama" name="Nama Lengkap" required placeholder="Tulis jawaban Anda di sini" autocomplete="name">
-        </div></div>
-
-        <!-- 2 Kelas -->
-        <div class="q"><div class="no">2</div><div>
-          <label for="kelas">Saat ini Ananda Kelas Berapa? *</label>
-          <select id="kelas" name="Kelas" required>
-            <option value="">- Pilih Kelas -</option>
-            <option>1 SD</option><option>2 SD</option><option>3 SD</option>
-            <option>4 SD</option><option>5 SD</option><option>6 SD</option>
-            <option>7 SMP</option><option>8 SMP</option><option>9 SMP</option>
-            <option>10 SMA</option><option>11 SMA</option><option>12 SMA</option>
-          </select>
-        </div></div>
-
-        <!-- 3 Program Belajar -->
-        <div class="q"><div class="no">3</div><div>
-          <label for="program">Pilih Program Belajar *</label>
-          <select id="program" name="Program Belajar" required>
-            <option value="">- Pilih Program Belajar -</option>
-            <option>Persiapan TKA & SMP Favorit (6 SD)</option>
-            <option>Nilai Rapor & Jalur Prestasi (4–6 SD)</option>
-            <option>Masuk SMP Labschool (6 SD)</option>
-            <option>Masuk SMP Al Azhar (6 SD)</option>
-            <option>Masuk SMP BP IBS (6 SD)</option>
-            <option>Program SMP – Penguatan Rapor</option>
-            <option>Program SMA – PTN Favorit</option>
-          </select>
-        </div></div>
-
-        <!-- 4 Layanan Bimbel -->
-        <div class="q"><div class="no">4</div><div>
-          <label for="layanan">Layanan Bimbel *</label>
-          <select id="layanan" name="Layanan Bimbel" required>
-            <option value="">Silakan pilih satu</option>
-            <option>Online</option>
-            <option>Cabang Offline (Jabodetabek, Semarang, Padang, Batam)</option>
-          </select>
-          <div class="helper">Cabang Offline tersedia di Jabodetabek, Semarang, Padang, dan Batam.</div>
-        </div></div>
-
-        <!-- 5 Nomor HP Ortu -->
-        <div class="q"><div class="no">5</div><div>
-          <label for="hp">Nomor HP Ortu *</label>
-          <input class="input" id="hp" name="Nomor HP Ortu" type="tel" required placeholder="0812-3456-7890" autocomplete="tel"
-                 pattern="^(?:\+?62|0)8[1-9][0-9]{6,10}$" title="Gunakan format Indonesia, contoh: 081234567890 atau +6281234567890">
-          <div class="helper">Format: 08xx atau +628xx</div>
-        </div></div>
-
-        <!-- 6 Asal Wilayah -->
-        <div class="q"><div class="no">6</div><div>
-          <label for="wilayah">Asal Wilayah *</label>
-          <select id="wilayah" name="Asal Wilayah" required>
-            <option value="">Silakan pilih satu</option>
-            <option>Jakarta</option><option>Bogor</option><option>Depok</option><option>Tangerang</option><option>Bekasi</option>
-            <option>Semarang</option><option>Padang</option><option>Batam</option>
-            <option>Lainnya</option>
-          </select>
-        </div></div>
-
-        <!-- 7 Asal Sekolah -->
-        <div class="q"><div class="no">7</div><div>
-          <label for="sekolah">Asal Sekolah *</label>
-          <input class="input" id="sekolah" name="Asal Sekolah" required placeholder="Tulis jawaban Anda di sini">
-        </div></div>
-
-        <!-- 8 Email Ortu -->
-        <div class="q"><div class="no">8</div><div>
-          <label for="email">Email Aktif Ortu *</label>
-          <input class="input" id="email" name="Email Ortu" type="email" required placeholder="nama@email.com" autocomplete="email">
-        </div></div>
-
-        <!-- 9 Tujuan -->
-        <div class="q"><div class="no">9</div><div>
-          <label for="tujuan">Tujuan PTN/SMP-SMA Pilihan *</label>
-          <input class="input" id="tujuan" name="Tujuan" required placeholder="Tulis jawaban Anda di sini">
-        </div></div>
-
-        <!-- 10 Sumber Informasi -->
-        <div class="q"><div class="no">10</div><div>
-          <label for="sumber">Sumber Informasi BP *</label>
-          <select id="sumber" name="Sumber Informasi" required>
-            <option value="">- Pilih Satu -</option>
-            <option>Instagram</option>
-            <option>YouTube</option>
-            <option>Facebook</option>
-            <option>TikTok</option>
-            <option>Teman/Keluarga</option>
-            <option>Google</option>
-            <option>Lainnya</option>
-          </select>
-        </div></div>
-
-        <!-- Catatan opsional -->
-        <div class="q"><div class="no">—</div><div>
-          <label for="catatan">Catatan Tambahan (opsional)</label>
-          <textarea class="input" id="catatan" name="Catatan" placeholder="Tuliskan catatan tambahan jika ada"></textarea>
-        </div></div>
-
-        <div class="submit">
-          <button class="btn primary" type="submit">Kirim Konsultasi</button>
-          <a class="btn outline" href="https://wa.me/6282226668651" target="_blank" rel="noopener">Chat via WhatsApp</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ====== Kontak & Cabang (Footer) ====== -->
-  <footer id="kontak" role="contentinfo">
-    <div class="foot">
-      <div>
-        <h3 style="margin:0 0 10px">Bintang Pelajar</h3>
-        <p>Bintang Pelajar sejak 1995 berdiri untuk mendukung prestasi tinggi dan akhlak terpuji.</p>
-        <div style="margin-top:10px;display:grid;gap:6px">
-          <div>📞 0822 2666 8651</div>
-          <div>✉️ info@bintangpelajar.co.id</div>
-          <div>🏢 Jl. Cimanggu Permai I No.2, Kedung Jaya, Tanah Sereal, Kota Bogor, Jawa Barat 16122</div>
-        </div>
-      </div>
-      <div>
-        <h5>Layanan</h5>
-        <ul style="list-style:none;padding:0;display:grid;gap:6px">
-          <li><a href="#program">Jago Bidang Studi</a></li>
-          <li><a href="#program">Sukses TKA</a></li>
-          <li><a href="#program">Sekolah Lanjutan Unggulan</a></li>
-          <li><a href="#program">MAN Insan Cendekia</a></li>
-          <li><a href="#program">Labschool</a></li>
-          <li><a href="#program">MH Thamrin</a></li>
-          <li><a href="#program">Pradita Dirgantara</a></li>
-          <li><a href="#program">YAPI Al Azhar</a></li>
-          <li><a href="#program">BP-IBS</a></li>
-          <li><a href="#program">Tembus PTN Favorit</a></li>
-          <li><a href="#program">Prosus UI ITB</a></li>
-          <li><a href="#program">Prosus Kedokteran</a></li>
-          <li><a href="#program">Program Kemitraan</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Cabang</h5>
-        <ul style="list-style:none;padding:0;display:grid;gap:6px">
-          <li>Jakarta – YAPI Al Azhar Rawamangun, Ahmad Dahlan, Rawamangun, Kembangan</li>
-          <li>Bekasi – Cibubur, Citra Grand, Grand Wisata, Kemang Pratama, Galaxy City, Summarecon, Harapan Indah, Cikarang</li>
-          <li>Bogor–Depok – Polisi, Sholeh Iskandar, Pajajaran, Pesona Khayangan, Cinere</li>
-          <li>Tangerang – Vila Dago, BSD Kencana Loka, ALBESD</li>
-          <li>Luar Jabodetabek – Tirto Agung (Semarang), Belanti (Padang), Pollux Habibie (Batam)</li>
-        </ul>
-      </div>
-      <div>
-        <h5>Media Sosial</h5>
-        <ul style="list-style:none;padding:0;display:grid;gap:6px">
-          <li><a href="#" aria-label="Instagram Bintang Pelajar">Instagram</a></li>
-          <li><a href="#" aria-label="YouTube Bintang Pelajar">YouTube</a></li>
-          <li><a href="#" aria-label="Facebook Bintang Pelajar">Facebook</a></li>
-          <li><a href="#" aria-label="TikTok Bintang Pelajar">TikTok</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copyright">© PT. Bintang Pelajar. All Rights Reserved</div>
+  <!-- Footer -->
+  <footer id="kontak">
+    <h3>Hubungi Kami</h3>
+    <p>Email: info@bintangpelajar.com | Telp: +62 812 3456 7890</p>
+    <p>&copy; 2025 Bintang Pelajar. All Rights Reserved.</p>
   </footer>
 
-  <!-- ====== Script Interaksi (vanilla JS) ======
-       Ringkas & berkomentar agar mudah dipahami/dirawat
-  ===================================================== -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    // =====================================================
-    // CONFIG: nomor WhatsApp admin (ganti sesuai kebutuhan)
-    // =====================================================
-    const CONFIG = { waAdmin: '6282226668651' };
-
-    // =====================================================
-    // 1) Mobile Menu Toggle + ARIA
-    //    - Buka/tutup menu, atur display flex kolom
-    // =====================================================
-    function toggleMenu(){
-      const menu = document.getElementById('menu');
-      const burger = document.querySelector('.burger');
-      const isOpen = menu.style.display === 'flex';
-      menu.style.display = isOpen ? 'none' : 'flex';
-      if(!isOpen){ menu.style.flexDirection='column'; menu.style.gap='10px'; }
-      burger.setAttribute('aria-expanded', String(!isOpen));
+    AOS.init({ duration: 1000, once: true });
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
     }
-
-    // Tutup menu saat klik link nav (mobile)
-    document.querySelectorAll('#menu a').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        const mq = window.matchMedia('(max-width:760px)');
-        const menu = document.getElementById('menu');
-        if(mq.matches){ menu.style.display='none'; document.querySelector('.burger')?.setAttribute('aria-expanded','false'); }
-      });
+    function toggleFAQ(el) {
+      el.classList.toggle("active");
+    }
+    // Partikel Background
+    particlesJS("particles-js", {
+      particles: { number: { value: 60 }, size: { value: 3 }, move: { speed: 1 }, line_linked: { enable: true } }
     });
-
-    // =====================================================
-    // 2) Reveal on Scroll (IntersectionObserver)
-    //    - Menambahkan kelas .show saat elemen terlihat
-    // =====================================================
-    const ro = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); ro.unobserve(e.target); } });
-    },{threshold:0.15});
-    document.querySelectorAll('.reveal, .card').forEach(el=>ro.observe(el));
-
-    // =====================================================
-    // 3) Filter Program berdasarkan jenjang (pill)
-    //    - Mengatur display kartu pada #programGrid
-    // =====================================================
-    document.querySelectorAll('.pill').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        document.querySelectorAll('.pill').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-        const filter = btn.dataset.filter; // sd | smp | sma
-        document.querySelectorAll('#programGrid .card').forEach(c=>{
-          const cat = c.getAttribute('data-cat') || '';
-          const show = cat.includes(filter);
-          c.style.display = show ? 'flex' : 'none';
-        });
-      });
-    });
-
-    // =====================================================
-    // 4) Open <details> helper
-    //    - Membuka accordion & scroll halus ke posisinya
-    // =====================================================
-    function openDetails(id){
-      const el = document.getElementById(id);
-      if(el){ el.open = true; el.scrollIntoView({behavior:'smooth', block:'start'}); }
-    }
-
-    // =====================================================
-    // 5) Scroll Spy: menyorot link nav aktif sesuai bagian
-    //    - Memudahkan user tahu berada di section mana
-    // =====================================================
-    const sections = ['home','program','paket','konsultasi','kontak'].map(id=>document.getElementById(id));
-    const navLinks = Array.from(document.querySelectorAll('.menu a')).filter(a=>a.getAttribute('href')?.startsWith('#'));
-    const spy = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        const id = entry.target.id;
-        const link = document.querySelector(`.menu a[href="#${id}"]`);
-        if(link){
-          if(entry.isIntersecting){ navLinks.forEach(l=>l.classList.remove('active')); link.classList.add('active'); }
-        }
-      });
-    },{rootMargin:'-50% 0px -45% 0px', threshold:0.1});
-    sections.forEach(s=>s && spy.observe(s));
-
-    // =====================================================
-    // 6) Form Submit -> WhatsApp
-    //    - Mengubah data form menjadi teks WA
-    //    - Fallback: copy ke clipboard jika popup diblokir
-    // =====================================================
-    function handleSubmit(e){
-      e.preventDefault();
-      const form = e.target;
-      if(!form.checkValidity()){ form.reportValidity(); return false; }
-
-      const data = Object.fromEntries(new FormData(form).entries());
-      const lines = Object.entries(data).map(([k,v]) => `${k}: ${v}`);
-      const text = encodeURIComponent("Minat Bimbel – Form Konsultasi%0A" + lines.join('%0A'));
-
-      const waURL = `https://wa.me/${CONFIG.waAdmin}?text=${text}`;
-      const popup = window.open(waURL,'_blank');
-
-      if(!popup || popup.closed || typeof popup.closed === 'undefined'){
-        // Fallback jika popup diblokir
-        navigator.clipboard?.writeText(decodeURIComponent(text).replaceAll('%0A','\n'));
-        alert('Teks terkopi. Tempel secara manual di WhatsApp:\n\n' + decodeURIComponent(text).replaceAll('%0A','\n'));
-        window.location.href = `https://wa.me/${CONFIG.waAdmin}`;
-      }else{
-        alert('Data disiapkan. Kami arahkan ke WhatsApp untuk konfirmasi.');
-      }
-      form.reset();
-      return false;
-    }
-
-    // =====================================================
-    // 7) Smooth scroll offset (agar tidak ketutupan header)
-    //    - Menangkap klik anchor internal & offset ~70px
-    // =====================================================
-    document.addEventListener('click', (ev)=>{
-      const a = ev.target.closest('a[href^="#"]');
-      if(!a) return;
-      const id = a.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if(!target) return;
-      ev.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior:'smooth' });
-      history.replaceState(null,'',`#${id}`);
-    }, { passive:false });
   </script>
+  <div id="particles-js" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>
 </body>
 </html>
