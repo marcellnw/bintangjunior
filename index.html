@@ -15,6 +15,17 @@
     nav a { color: white; text-decoration: none; font-size: 0.95rem; }
     .burger { display: none; background: none; border: none; color: white; font-size: 1.5rem; }
 
+     .hero-logo {
+  width: 120px;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
     /* Hero */
     .hero { position: relative; height: 100vh; display: flex; justify-content: center; align-items: center; color: white; text-align: center; background: linear-gradient(rgba(0,74,173,0.8), rgba(0,74,173,0.8)), url('https://source.unsplash.com/1600x900/?education,books') center/cover; }
     .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
@@ -69,14 +80,16 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div data-aos="zoom-in">
-      <h1>Bimbingan Belajar Terbaik untuk Masa Depan Cerah</h1>
-      <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang Pelajar.</p>
-      <a href="#program" class="btn">Lihat Program</a>
-    </div>
-  </section>
+<!-- Hero -->
+<section class="hero">
+  <div data-aos="zoom-in">
+    <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/public/logo.png" 
+         alt="Logo Bintang Junior" class="hero-logo">
+    <h1>Bimbingan Belajar Terbaik untuk Masa Depan Cerah</h1>
+    <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang Pelajar.</p>
+    <a href="#program" class="btn">Lihat Program</a>
+  </div>
+</section>
 
   <!-- Program -->
   <section id="program">
