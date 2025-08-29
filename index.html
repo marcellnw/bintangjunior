@@ -7,763 +7,134 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-/* Reset & Global */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-body {
-  background: #f8f9fc;
-  color: #333;
-  padding-top: 70px; /* biar konten gak ketutup header */
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html,body{max-width:100%;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+body{background:#fff;color:#333;padding-top:60px;line-height:1.6;}
+
+/* HEADER */
+header{background:#004aad;color:#fff;padding:0.7rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+header .brand{display:flex;align-items:center;gap:10px;}
+header .brand img{height:45px;width:auto;}
+header .brand span{font-size:1.25rem;font-weight:600;}
+
+/* NAVIGATION */
+nav{display:flex;gap:1.5rem;align-items:center;}
+nav a{color:#fff;text-decoration:none;font-size:0.95rem;font-weight:500;transition:0.3s;}
+nav a:hover{color:#ffb703;}
+.burger{display:none;background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;}
+@media(max-width:768px){
+  nav{display:none;flex-direction:column;gap:1rem;background:#004aad;
+    position:absolute;top:60px;right:15px;width:200px;padding:1rem;
+    border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    opacity:0;transform:translateY(-10px);transition:0.3s;}
+  nav.active{display:flex;opacity:1;transform:translateY(0);}
+  .burger{display:block;}
 }
 
-/* Header */
-header {
-  background: #004aad;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  position: fixed; /* selalu nempel atas */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* HERO */
+.hero{
+  flex:1;min-height:100vh;
+  display:flex;justify-content:center;align-items:center;text-align:center;
+  color:#fff;position:relative;padding:2rem;
+  background:url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250829110920961.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,74,173,0.5);
+  z-index:0;
+}
+#particles-js{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+.hero-content{position:relative;z-index:2;}
+.hero h1{font-size:2.2rem;margin-bottom:1rem;font-weight:700;line-height:1.3;}
+.hero p{font-size:1.05rem;margin-bottom:2.5rem;max-width:650px;margin:auto;}
+.btn{padding:0.9rem 1.6rem;background:#ffb703;color:#000;border-radius:8px;text-decoration:none;font-weight:600;
+  transition:0.3s;font-size:1rem;display:inline-block;}
+.btn:hover{background:#ffa500;transform:scale(1.05);}
+.btn-group{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+@media(max-width:768px){
+  .hero h1{font-size:1.7rem;}
+  .hero p{font-size:0.95rem;margin-bottom:2rem;}
 }
 
-/* Brand */
-header .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-header .brand img {
-  height: 50px;
-  width: auto;
-}
-header .brand span {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-/* ===== RESET ===== */
-* {
-  margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-html, body {
-  max-width: 100%; overflow-x: hidden;
-}
-body {
-  background: #f8f9fc;
-  color: #333;
-  padding-top: 70px; /* biar konten gak ketutup header */
-}
 
-/* ===== HEADER ===== */
-header {
-  background: #004aad;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+/* FOOTER */
+footer{
+  background:#004aad;color:#fff;
+  padding:0.8rem 1.2rem;text-align:center;font-size:0.9rem;
+  box-shadow:0 -2px 6px rgba(0,0,0,0.2);
 }
-
-/* Brand */
-header .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-header .brand img {
-  height: 50px;
-  width: auto;
-}
-header .brand span {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-/* ===== NAVIGATION ===== */
-nav {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-nav a:hover {
-  color: #ffb703;
-}
-
-/* ===== BURGER (MOBILE) ===== */
-.burger {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 1100; /* biar gak ketiban nav */
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    background: #004aad;
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    width: 200px;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  }
-
-  nav.active {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .burger {
-    display: block;
-  }
-}
-
-    /* Hero */
-    .hero {
-      position: relative; min-height: 100vh; display: flex; justify-content: center; align-items: center;
-      text-align: center; color: #fff;
-      background: linear-gradient(rgba(0,74,173,0.7), rgba(0,74,173,0.7)),
-        url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250829110920961.jpg') center/cover no-repeat;
-      padding: 2rem;
-    }
-    .hero-logo { width: 260px; max-width: 80%; margin: 0 auto 1.5rem auto; display: block; animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0%{transform:translateY(0);}50%{transform:translateY(-15px);}100%{transform:translateY(0);} }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; font-weight: 700; }
-    .hero p { font-size: 1.3rem; margin-bottom: 1.8rem; }
-    .btn { padding: 1rem 2rem; background: #ffb703; color: #000; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.3s; font-size: 1.1rem; }
-    .btn:hover { background: #ffa500; transform: scale(1.05); }
-
-    /* Section */
-    section { padding: 4rem 2rem; max-width: 1200px; margin: auto; position: relative; }
-    section h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #004aad; }
-
-    /* Program */
-/* ===== PROGRAM SECTION ===== */
-#program {
-  background: linear-gradient(to bottom, #ffffff, #e6f2ff, #004aad);
-  color: #000; /* teks tetap gelap supaya jelas */
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-#program h2 { 
-  color: #ffb703; 
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-/* Grid program */
-.programs { 
-  display: grid; 
-  gap: 1.5rem; 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-}
-
-/* Card */
-.program {
-  background: rgba(255,255,255,0.95); 
-  color: #333; 
-  padding: 2rem; 
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
-  transition: 0.3s; 
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  /* kunci tinggi agar kotak rapi di desktop */
-  min-height: 280px; 
-}
-
-.program:hover { 
-  transform: translateY(-10px) scale(1.03); 
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25); 
-}
-
-.program h3 { 
-  color: #004aad; 
-  margin: 0.8rem 0; 
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-/* Responsif: biar tidak terlalu tinggi di HP */
-@media (max-width: 768px) {
-  .program {
-    min-height: auto; /* tinggi fleksibel di mobile */
-  }
-}
-
-    /* Promo (full-bleed background + overlay) */
-/* --- promo utama --- */
-#promo {
-  width: 100%;
-  max-width: none;
-  padding: 0;
-  margin: 0;
-  background: url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250827162814086.jpg') center/cover no-repeat;
-  position: relative;
-}
-
-#promo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65); /* hitam transparan */
-  z-index: 0;
-}
-
-.promo-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.promo-inner h2 {
-  color: #fff;
-}
-
-/* --- grid --- */
-.promos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
-  margin-top: 1.5rem;
-}
-
-/* --- card --- */
-.promo {
-  background: rgba(255,255,255,0.08); /* transparan, sama semua */
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  padding: 1.5rem 1rem;
-  color: #fff;
-  text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  min-height: 200px;
-}
-
-.promo:hover {
-  transform: translateY(-6px);
-  background: rgba(255,255,255,0.15);
-}
-
-.promo .icon {
-  font-size: 1.8rem;
-  color: #00ff7f;
-}
-
-.promo h3 {
-  color: #ffb703;
-  font-size: 1rem;
-  margin: 0;
-}
-
-.promo p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* --- hapus style khusus agar 2 & 4 sama --- */
-.promo.bg-custom {
-  background: rgba(255,255,255,0.08) !important; 
-  border: 1px solid rgba(255,255,255,0.2) !important;
-  color: #fff !important;
-}
-
-/* --- responsive --- */
-@media (max-width: 992px) {
-  .promos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 600px) {
-  .promos {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* hapus style khusus bg-custom agar sama dengan card biasa */
-.promo.bg-custom {
-  background: #ffffff; 
-  border: 1px solid #e0e0e0;
-  color: #333;
-}
-
-@media (max-width: 992px) {
-  .promos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .promos {
-    grid-template-columns: 1fr;
-  }
-}
-/* ===== TESTIMONI ===== */
-.testimoni { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-  gap: 1.5rem; 
-}
-
-.card {
-  background: #fff; 
-  padding: 2rem; 
-  border-radius: 15px; 
-  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-  transition: all 0.3s ease; 
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  /* kunci tinggi supaya rata di desktop */
-  min-height: 300px;
-}
-
-.card::before { 
-  content: "“"; 
-  font-size: 3rem; 
-  color: #ffb703; 
-  position: absolute; 
-  top: 10px; 
-  left: 15px; 
-  opacity: 0.2; 
-}
-
-.card:hover { 
-  transform: translateY(-8px) scale(1.02); 
-  box-shadow: 0 12px 28px rgba(0,0,0,0.2); 
-}
-
-.card p { 
-  font-style: italic; 
-  margin-bottom: 1rem; 
-  line-height: 1.6; 
-  flex-grow: 1; 
-  text-align: center;
-}
-
-/* ⭐ Rating */
-.stars {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #ffb703;
-  margin-bottom: 1rem;
-}
-
-/* Avatar style */
-.avatar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.avatar img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 3px solid #ffb703;
-  object-fit: cover;
-}
-
-.avatar h4 { 
-  color: #004aad; 
-  font-weight: 600; 
-  margin: 0;
-}
-
-/* Responsif */
-@media (max-width: 768px) {
-  .card {
-    min-height: auto;
-  }
-}
-
-    /* FAQ */
-    .faq { display: grid; gap: 1rem; }
-    .faq-item {
-      background: #fff; padding: 1rem 1.5rem; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      cursor: pointer; transition: all 0.3s ease;
-    }
-    .faq-item:hover { background: #f1f5ff; }
-    .faq-item h4 { display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
-    .faq-item p { display: none; margin-top: 0.5rem; font-size: 0.9rem; }
-    .faq-item.active p { display: block; }
-
-/* ===== FOOTER ===== */
-/* ===== FOOTER ===== */
-footer {
-  background: #004aad;
-  color: #fff;
-  padding: 3rem 1.5rem 1rem;
-  font-size: 0.9rem; /* lebih kecil & elegan */
-  line-height: 1.7;
-}
-
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem; /* beri jarak antar kolom */
-  max-width: 1150px;
-  margin: auto;
-  text-align: left;
-}
-
-.footer-col h3, 
-.footer-col h4 {
-  margin-bottom: 1rem;
-  color: #ffb703;
-  font-size: 1.15rem; /* cukup elegan */
-  font-weight: 600;
-}
-
-.footer-col p {
-  margin: 0.4rem 0;
-  font-size: 0.9rem;
-}
-
-.footer-logo {
-  width: 65px;
-  margin-bottom: 0.8rem;
-}
-
-/* Sosial Media */
-.socials {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.6rem;
-}
-.socials a {
-  color: #fff;
-  font-size: 1.3rem;
-  transition: 0.3s;
-}
-.socials a:hover {
-  color: #ffb703;
-}
-
-/* Footer bawah */
-.footer-bottom {
-  margin-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.25);
-  padding-top: 1rem;
-  text-align: center;
-  font-size: 0.8rem; /* kecil elegan */
-  opacity: 0.85;
-}
-
-/* Responsif */
-@media (max-width: 768px) {
-  .footer-container {
-    text-align: center;
-  }
-  .socials {
-    justify-content: center;
-  }
-}
-    /* Wave Separator */
-    .wave { position: relative; width: 100%; overflow: hidden; line-height: 0; }
-    .wave svg { position: relative; display: block; width: calc(140% + 1.3px); height: 80px; }
-    .wave .shape-fill { fill: #f8f9fc; }
-
-    /* Responsive Navbar & Hero */
-    @media (max-width: 768px) {
-      nav { display: none; flex-direction: column; background: #004aad; position: absolute; top: 65px; right: 0; width: 200px; padding: 1rem; }
-      nav.show { display: flex; }
-      .burger { display: block; }
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .hero-logo { width: 180px; }
-    }
-
-    /* Biar teks tidak melebar di HP */
-    .hero h1, .hero p, section h2, .program p, .promo p, .card p, .faq-item p {
-      max-width: 90%; margin-left: auto; margin-right: auto; word-wrap: break-word; text-align: center;
-    }
-    .program p, .promo p, .card p, .faq-item p { font-size: 0.95rem; line-height: 1.5; }
-
-    img { max-width: 100%; height: auto; display: block; }
+footer p{margin:0;display:flex;align-items:center;justify-content:center;gap:6px;}
+footer i{color:#ffb703;font-size:1rem;}
+@media(max-width:768px){footer{font-size:0.8rem;padding:0.7rem;}}
   </style>
 </head>
 <body>
-  <!-- Partikel Background -->
-  <div id="particles-js" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>
 
- <!-- ===== NAVBAR ===== -->
-<header>
-  <div class="brand">
-    <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Logo%20Bintang%20Junior.png" alt="Logo" />
-    <span>Bintang Junior</span>
-  </div>
+  <header>
+    <div class="brand">
+      <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Logo%20Bintang%20Junior.png" alt="Logo" />
+      <span>Bintang Junior</span>
+    </div>
+    <button class="burger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+    <nav id="menu">
+      <a href="#program">Program</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
 
-  <!-- Tombol Burger -->
-  <button class="burger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
-
-  <!-- Menu Navigasi -->
-  <nav id="menu">
-    <a href="index.html">Kembali</a>
-    <a href="#promo">Promo</a>
-    <a href="#testimoni">Testimoni</a>
-    <a href="#faq">FAQ</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
-</header>
-
-  <!-- Hero -->
   <section class="hero">
-    <div data-aos="zoom-in">
-      <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Bintangjunior.png" alt="Logo Bintang Junior" class="hero-logo">
+    <div id="particles-js"></div>
+    <div class="hero-content" data-aos="zoom-in">
       <h1>Bimbingan Belajar Terbaik untuk Masa Depan Cerah</h1>
       <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang Junior.</p>
-      <a href="#program" class="btn">Lihat Program</a>
-    </div>
-  </section>
-
-  <!-- Wave separator -->
-  <div class="wave">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M985.66,83.29C906.67,116.14,823.78,130,740,130c-83.78,0-166.67-13.86-245.66-46.71C415.34,50.43,332.44,36.57,248.66,36.57c-83.78,0-166.67,13.86-245.66,46.72V0H1200V83.29Z" class="shape-fill"></path>
-    </svg>
-  </div>
-
-  <!-- Program -->
-  <section id="program">
-    <h2 data-aos="fade-up">Program Kami</h2>
-    <div class="programs">
-      <div class="program" data-aos="fade-right">
-        <h3>Bimbel Calistung</h3>
-        <p>Belajar membaca, menulis, berhitung dengan metode menyenangkan.</p>
-      </div>
-      <div class="program" data-aos="fade-up">
-        <h3>Tahfidz Juz 30</h3>
-        <p>Membimbing anak menghafal surat pendek dengan lembut & penuh cinta.</p>
-      </div>
-      <div class="program" data-aos="fade-left">
-        <h3>Private Class</h3>
-        <p>Pembelajaran personal dengan fokus penuh pada kebutuhan siswa.</p>
+      <div class="btn-group">
+        <a href="https://wa.me/628117445700" class="btn">Daftar Online</a>
+        <a href="#program" class="btn">Lihat Program</a>
       </div>
     </div>
   </section>
 
-  <!-- Promo (full-bleed) -->
-  <section id="promo">
-    <div class="promo-inner">
-      <h2 data-aos="fade-up">Promo Spesial Bintang Junior</h2>
-      <div class="promos">
-        <div class="promo" data-aos="zoom-in">
-          <div class="icon"><i class="bi bi-pencil-square"></i></div>
-          <h3>Pendaftaran GRATIS</h3>
-          <p>Tanpa biaya masuk, langsung bisa belajar.</p>
-        </div>
-        <div class="promo bg-custom" data-aos="zoom-in">
-          <div class="icon"><i class="bi bi-calendar-check"></i></div>
-          <h3>Trial 2x Pertemuan</h3>
-          <p>Gratis uji coba 2x pertemuan (90 menit), seminggu 3x belajar.</p>
-        </div>
-        <div class="promo" data-aos="zoom-in">
-          <div class="icon"><i class="bi bi-cash-coin"></i></div>
-          <h3>SPP Hemat</h3>
-          <p>SPP hanya Rp250.000/bulan. <br><b>Diskon Rp225.000/bulan untuk 2 bulan awal!</b></p>
-        </div>
-        <div class="promo bg-custom" data-aos="zoom-in">
-          <div class="icon"><i class="bi bi-journal-bookmark"></i></div>
-          <h3>Seragam & Modul</h3>
-          <p>Paket seragam kaos + modul belajar hanya Rp150.000.</p>
-        </div>
-        <div class="promo" data-aos="zoom-in">
-          <div class="icon"><i class="bi bi-people"></i></div>
-          <h3>Referral Bonus</h3>
-          <p>Ajak saudara/teman daftar, dapat potongan Rp50.000 di SPP per 1 anak.</p>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:2rem;">
-        <a href="https://wa.me/628117445700" target="_blank" class="btn"><i class="bi bi-whatsapp"></i> Daftar Sekarang via WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-<!-- Testimoni -->
-<section id="testimoni">
-  <h2 data-aos="fade-up">Apa Kata Orang Tua?</h2>
-  <div class="testimoni">
-    
-    <div class="card" data-aos="flip-left">
-      <p>"Alhamdulillah anak saya jadi semangat belajar dan cepat bisa calistung."</p>
-      <div class="stars">★★★★★</div>
-      <div class="avatar">
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Avatar Ibu Heni">
-        <h4>Ibu Heni</h4>
-      </div>
-    </div>
-
-    <div class="card" data-aos="flip-right">
-      <p>"Selain belajar, anak juga senang dengan hafalan surat-surat pendek."</p>
-      <div class="stars">★★★★★</div>
-      <div class="avatar">
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Avatar Ibu Widarti">
-        <h4>Ibu Widarti</h4>
-      </div>
-    </div>
-
-    <div class="card" data-aos="zoom-in">
-      <p>"Guru-gurunya sabar dan suasana belajarnya menyenangkan."</p>
-      <div class="stars">★★★★★</div>
-      <div class="avatar">
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Avatar Ibu Rodiah">
-        <h4>Ibu Rodiah</h4>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <h2 data-aos="fade-up">Pertanyaan yang Sering Diajukan</h2>
-    <div class="faq">
-      <div class="faq-item" onclick="toggleFAQ(this)" data-aos="fade-right">
-        <h4>Bagaimana cara mendaftar? <span>+</span></h4>
-        <p>Pendaftaran bisa via WhatsApp atau langsung ke unit terdekat.</p>
-      </div>
-      <div class="faq-item" onclick="toggleFAQ(this)" data-aos="fade-left">
-        <h4>Apakah ada kelas percobaan? <span>+</span></h4>
-        <p>Ya, ada trial class gratis 2x pertemuan.</p>
-      </div>
-      <div class="faq-item" onclick="toggleFAQ(this)" data-aos="fade-right">
-        <h4>Apakah bisa pindah jadwal jika anak berhalangan? <span>+</span></h4>
-        <p>Bisa, kami fleksibel menyesuaikan kebutuhan anak.</p>
-      </div>
-    </div>
-  </section>
-
-<!-- Footer -->
-<footer id="kontak">
-  <div class="footer-container">
-    
-    <!-- Brand -->
-    <div class="footer-col">
-        
-      <h3>Bintang Junior</h3>
-      <p>Bimbingan belajar untuk TK & SD dengan suasana menyenangkan dan mendidik.</p>
-    </div>
-
-    <!-- Kontak -->
-    <div class="footer-col">
-      <h4>Kontak</h4>
-      <p><i class="bi bi-telephone"></i> Ibu Ika - 08117445700 / 082178987700</p>
-      <p><i class="bi bi-geo-alt"></i> Jl. Sentot Ali Basa, Kel. Payo Selincah, Jambi</p>
-    </div>
-
-    <!-- Sosial Media -->
-    <div class="footer-col">
-      <h4>Ikuti Kami</h4>
-      <div class="socials">
-        <a href="https://www.tiktok.com/@bintangjunior.official?_t=ZS-8xebqmys4cq&_r=1&fbclid=PAdGRjcAMeIz9leHRuA2FlbQIxMQABp8pUgXJll29444ISKXbvMNk53Oq7SsZ2F7bKZnheBkEocU9uubTZkjXxjYhR_aem_tpu_mWOhwqT8-sdemOiTZg"><i class="bi bi-tiktok"></i></a>
-        <a href="https://www.instagram.com/bintangjunior.official?igsh=MWZkNjg3eWs4bjhpaw=="><i class="bi bi-instagram"></i></a>
-        <a href="https://wa.me/message/2W4FKC2VNC5HP1"><i class="bi bi-whatsapp"></i></a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 Bimbel Bintang Junior. All Rights Reserved.</p>
-  </div>
-</footer>
+  <footer id="kontak">
+    <p>&copy; 2025 Bimbel Bintang Junior <i class="bi bi-telephone-fill"></i></p>
+  </footer>
   
-<!-- ===== SCRIPTS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-  // Inisialisasi AOS
-  AOS.init({ duration: 1000, once: true });
+  AOS.init({ duration:800, once:true });
+  const menu=document.getElementById("menu");
+  const links=menu.querySelectorAll("a");
+  function toggleMenu(){menu.classList.toggle("active");}
+  links.forEach(link=>link.addEventListener("click",()=>menu.classList.remove("active")));
 
-  const menu = document.getElementById("menu");
-  const links = menu.querySelectorAll("a");
-
-  // Toggle menu navigasi
-  function toggleMenu() {
-    menu.classList.toggle("active");
-  }
-
-  // Tutup menu saat link diklik
-  links.forEach(link => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-    });
-  });
-
-  // Toggle FAQ
-  function toggleFAQ(el) {
-    el.classList.toggle("active");
-  }
-
-  // Inisialisasi Particles.js
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      size: { value: 3 },
-      move: { speed: 1 },
-      line_linked: { enable: true }
-    }
+  // Partikel lebih halus
+  particlesJS("particles-js",{
+    particles:{
+      number:{value:60,density:{enable:true,value_area:800}},
+      size:{value:3,random:true},
+      color:{value:"#ffffff"},
+      line_linked:{enable:true,distance:150,color:"#ffffff",opacity:0.4,width:1},
+      move:{enable:true,speed:1.2,direction:"none",out_mode:"out"}
+    },
+    interactivity:{
+      events:{
+        onhover:{enable:true,mode:"grab"},
+        onclick:{enable:true,mode:"push"}
+      },
+      modes:{
+        grab:{distance:140,line_linked:{opacity:0.6}},
+        push:{particles_nb:4}
+      }
+    },
+    retina_detect:true
   });
 </script>
 </body>
