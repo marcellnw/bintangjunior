@@ -189,68 +189,23 @@ nav a:hover {
   overflow: hidden;
 }
 
-/* New: Animated particles */
-.particle-container {
+/* Partikel Pendidikan */
+#program::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  background-image: radial-gradient(#004aad 1px, transparent 1px),
+                      radial-gradient(#004aad 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 0.1;
   z-index: 1;
-  pointer-events: none; /* Allows clicks to pass through */
 }
 
-.particle {
-  position: absolute;
-  background-color: #004aad;
-  border-radius: 50%;
-  opacity: 0; /* Starts invisible */
-  animation: float 15s infinite ease-in-out;
-}
-
-.particle:nth-child(1) {
-  width: 15px; height: 15px;
-  top: 10%; left: 20%;
-  animation-duration: 12s;
-  animation-delay: 1s;
-}
-
-.particle:nth-child(2) {
-  width: 10px; height: 10px;
-  top: 50%; left: 70%;
-  animation-duration: 10s;
-  animation-delay: 2s;
-}
-
-.particle:nth-child(3) {
-  width: 20px; height: 20px;
-  top: 80%; left: 40%;
-  animation-duration: 15s;
-  animation-delay: 3s;
-}
-/* You can add more .particle elements as needed */
-
-/* Keyframes for floating animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(-50px) scale(1.1);
-    opacity: 0.1;
-  }
-  75% {
-    opacity: 0.1;
-  }
-  100% {
-    transform: translateY(-100px) scale(0.9);
-    opacity: 0;
-  }
-}
-
-/* Content over particles */
+/* Mengatur ulang z-index agar konten tetap di atas partikel */
 #program h2, .programs {
   position: relative;
   z-index: 2;
@@ -287,21 +242,14 @@ nav a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
-  min-height: 350px;
+  height: auto; /* Menggunakan height: auto untuk fleksibilitas */
+  min-height: 350px; /* Menjaga tinggi minimum agar tetap rapi */
   overflow: hidden;
 }
 
 .program:hover { 
   transform: translateY(-10px) scale(1.03); 
   box-shadow: 0 12px 25px rgba(0,0,0,0.25); 
-  animation: pulseShadow 0.5s forwards; /* New shadow animation */
-}
-
-/* New: Shadow animation for hover */
-@keyframes pulseShadow {
-    from { box-shadow: 0 12px 25px rgba(0,0,0,0.25); }
-    to { box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
 }
 
 .program h3 { 
@@ -312,7 +260,7 @@ nav a:hover {
   text-align: center;
 }
 
-/* responsive */
+/* responsif: biar tidak terlalu tinggi di hp */
 @media (max-width: 768px) {
   .program {
     min-height: auto; 
@@ -320,7 +268,7 @@ nav a:hover {
   }
 }
 
-/* Desktop fixes */
+/* Perbaikan untuk tampilan desktop */
 @media (min-width: 992px) {
   #program h2 {
     font-size: 2.5rem;
@@ -344,11 +292,13 @@ nav a:hover {
     text-overflow: ellipsis;
   }
 
+  /* Menghapus pengaturan tinggi tetap untuk desktop */
   .program {
-    height: auto;
-    min-height: 350px;
+    height: auto; /* Memastikan card desktop mengikuti kontennya */
+    min-height: 350px; /* Menjaga tinggi minimum agar tidak terlalu pendek */
   }
 }
+
 
 
 
