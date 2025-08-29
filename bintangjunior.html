@@ -180,6 +180,7 @@ nav a:hover {
 
     /* Program */
 /* ===== program section ===== */
+/* ===== program section ===== */
 #program {
   background: #fff;
   color: #000;
@@ -243,13 +244,34 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   height: auto; 
-  min-height: 350px; /* Aturan min-height berlaku untuk semua ukuran layar */
+  min-height: 350px;
   overflow: hidden;
+}
+
+/* Tambahan: Kotak garis di dalam card */
+.program::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #004aad;
+  border-radius: 15px;
+  transform: scale(0.9);
+  opacity: 0.5;
+  transition: transform 0.3s, opacity 0.3s;
+  z-index: -1;
 }
 
 .program:hover { 
   transform: translateY(-10px) scale(1.03); 
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25); 
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.program:hover::after {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .program h3 { 
@@ -292,6 +314,7 @@ nav a:hover {
     text-overflow: ellipsis;
   }
 }
+
 
 
 
