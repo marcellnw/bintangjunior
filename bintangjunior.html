@@ -237,6 +237,13 @@ nav a:hover {
   text-align: center;
   position: relative;
   z-index: 3;
+  
+  /* Menambahkan properti untuk memastikan kartu tetap kotak */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Konten dimulai dari atas */
+  height: 350px; /* Tinggi tetap untuk kartu */
+  overflow: hidden; /* Menyembunyikan konten yang meluber */
 }
 
 .program:hover { 
@@ -255,28 +262,36 @@ nav a:hover {
 @media (max-width: 768px) {
   .program {
     min-height: auto; 
+    height: auto; /* Mengatur tinggi fleksibel untuk mobile */
   }
 }
 
 /* Perbaikan untuk tampilan desktop */
 @media (min-width: 992px) {
   #program h2 {
-    font-size: 2.5rem; /* Ukuran font lebih besar untuk desktop */
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
   }
   
   .program h3 {
-    font-size: 1.4rem; /* Ukuran font untuk profesi/judul kartu lebih besar */
-    white-space: nowrap; /* Mencegah teks turun ke bawah jika terlalu panjang */
-    overflow: hidden; /* Menyembunyikan teks yang meluber */
-    text-overflow: ellipsis; /* Menambahkan "..." pada teks yang terpotong */
+    font-size: 1.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .program p {
-    font-size: 1rem; /* Ukuran font detail */
-    line-height: 1.4; /* Atur spasi baris agar lebih mudah dibaca */
+    font-size: 1rem;
+    line-height: 1.4;
+    /* Menambahkan properti untuk membatasi jumlah baris */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Batasi teks hanya 3 baris */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
+
 
     /* Promo (full-bleed background + overlay) */
 /* --- promo utama --- */
