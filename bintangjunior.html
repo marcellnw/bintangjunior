@@ -238,12 +238,13 @@ nav a:hover {
   position: relative;
   z-index: 3;
   
-  /* Menambahkan properti untuk memastikan kartu tetap kotak */
+  /* Properti untuk menempatkan konten di tengah vertikal */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Konten dimulai dari atas */
-  height: 350px; /* Tinggi tetap untuk kartu */
-  overflow: hidden; /* Menyembunyikan konten yang meluber */
+  justify-content: center; /* Konten ditempatkan di tengah vertikal */
+  align-items: center; /* Konten ditempatkan di tengah horizontal */
+  height: 350px;
+  overflow: hidden;
 }
 
 .program:hover { 
@@ -256,13 +257,14 @@ nav a:hover {
   margin: 0.5rem 0;
   font-size: 1.2rem;
   font-weight: 600;
+  text-align: center; /* Memastikan judul tetap di tengah */
 }
 
 /* responsif: biar tidak terlalu tinggi di hp */
 @media (max-width: 768px) {
   .program {
     min-height: auto; 
-    height: auto; /* Mengatur tinggi fleksibel untuk mobile */
+    height: auto;
   }
 }
 
@@ -274,23 +276,23 @@ nav a:hover {
   }
   
   .program h3 {
-    font-size: 1.4rem;
+    font-size: 1.1rem; /* Ukuran font lebih kecil agar tidak terlalu besar */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .program p {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Ukuran font detail lebih kecil */
     line-height: 1.4;
-    /* Menambahkan properti untuk membatasi jumlah baris */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* Batasi teks hanya 3 baris */
+    -webkit-line-clamp: 4; /* Batasi teks menjadi 4 baris */
     overflow: hidden;
     text-overflow: ellipsis;
   }
 }
+
 
 
     /* Promo (full-bleed background + overlay) */
