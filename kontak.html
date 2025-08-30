@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bintang Junior - Bimbel Calistung, English class & Tahfidz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+/* --- RESET & GENERAL STYLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f0f8ff;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 60px;
+}
+
+/* --- HEADER --- */
+header {
+  background: #004aad;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .brand img {
+  height: 45px;
+  width: auto;
+}
+
+header .brand span {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* --- NAVIGATION --- */
+nav {
+  display: none; /* Default to hidden on mobile */
+  flex-direction: column;
+  gap: 1rem;
+  background: #004aad;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  width: 200px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+nav.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffb703;
+}
+
+.burger {
+  display: block; /* Show burger menu on mobile */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  nav {
+    display: flex; /* Show navigation on desktop */
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+    opacity: 1;
+    transform: none;
+  }
+  .burger {
+    display: none; /* Hide burger menu on desktop */
+  }
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250829110920961.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 74, 173, 0.6);
+  z-index: 0;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* --- MAIN CONTENT CONTAINER --- */
+.container {
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  color: #004aad;
+  margin-bottom: 2rem;
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #ffb703;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card p i {
+  color: #004aad;
+  font-size: 1.2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: #004aad;
+  font-size: 2rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffb703;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #004aad;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+footer i {
+  color: #ffb703;
+  font-size: 1rem;
+}
+  </style>
+</head>
+<body>
+
+<audio 
+  id="bgMusic" 
+  src="https://github.com/marcellnw/bintangjunior/blob/main/Official%20Jingle%20Bintang%20Junior%20-%20Menjadi%20Bintang%20J_180851136_84.mp3?raw=true" 
+  autoplay 
+  loop>
+</audio>  
+  
+<header>
+  <div class="brand">
+    <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Logo%20Bintang%20Junior.png" alt="Logo" />
+    <span>Bintang Junior</span>
+  </div>
+  <button class="burger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+  <nav id="menu">
+    <a href="#about">Tentang Kami</a>
+    <a href="#contact">Kontak</a>
+    <a href="#program">Program</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div id="particles-js"></div>
+  <div class="hero-content" data-aos="fade-up">
+    <h1>Bimbingan Belajar Terbaik untuk Anak-Anak</h1>
+    <p>Kami hadir untuk membantu si kecil berprestasi sejak dini dengan cara yang ceria dan efektif.</p>
+  </div>
+</section>
+
+<main class="container">
+  <section id="contact" class="contact-section" data-aos="fade-up">
+    <h2>Informasi dan Kontak</h2>
+    <div class="contact-cards">
+      <div class="card" data-aos="fade-right">
+        <h3>Hubungi Kami</h3>
+        <p><i class="bi bi-person-fill"></i>Ibu Ika</p>
+        <p><i class="bi bi-whatsapp"></i><a href="https://wa.me/628117445700" target="_blank" style="color:inherit;text-decoration:none;">0811-7445-700</a></p>
+        <p><i class="bi bi-telephone-fill"></i><a href="tel:+6282178987700" target="_blank" style="color:inherit;text-decoration:none;">0821-7898-7700</a></p>
+      </div>
+      <div class="card" data-aos="fade-left">
+        <h3>Alamat Kami</h3>
+        <p><i class="bi bi-geo-alt-fill"></i>Jl. Sentot Ali Basa, RT. 10</p>
+        <p>Kel. Payo Selincah, Kota Jambi</p>
+        <p><i class="bi bi-house-door-fill"></i>Lihat di Google Maps</p>
+      </div>
+    </div>
+    <div class="social-links" data-aos="zoom-in" data-aos-delay="400">
+      <a href="https://www.instagram.com/bintangjunior.official?igsh=MWZkNjg3eWs4bjhpaw==" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.tiktok.com/@bintangjunior_jambi?_t=ZS-8zJ8w6tSy7W&_r=1" target="_blank" aria-label="Tiktok"><i class="bi bi-tiktok"></i></a>
+      <a href="https://wa.me/message/2W4FKC2VNC5HP1" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Bimbel Bintang Junior <i class="bi bi-star-fill"></i></p>
+</footer>
+  
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+  const menu = document.getElementById("menu");
+  const links = menu.querySelectorAll("a");
+
+  function toggleMenu() {
+    menu.classList.toggle("active");
+  }
+
+  links.forEach(link => link.addEventListener("click", () => menu.classList.remove("active")));
+
+  // Particles JS configuration
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+          "enable": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 1.5,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "repulse": {
+          "distance": 100,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        }
+      }
+    },
+    "retina_detect": true
+  });
+
+  // Autoplay music with a catch
+  window.addEventListener('load', () => {
+    const music = document.getElementById('bgMusic');
+    if (music) {
+      music.volume = 0.4;
+      music.play().catch(error => {
+        console.log('Autoplay was blocked:', error);
+      });
+    }
+  });
+</script>
+</body>
+</html>
