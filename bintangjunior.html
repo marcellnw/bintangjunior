@@ -1221,16 +1221,25 @@ footer {
   });
 
   <!-- ===== backsound ===== -->
-  function openStory() {
-      document.getElementById("storyPage").classList.add("active");
-      document.getElementById("bgMusic").volume = 0.3;
-      document.getElementById("bgMusic").play();
-    }
-    function closeStory() {
-      document.getElementById("storyPage").classList.remove("active");
-      document.getElementById("bgMusic").pause();
-      document.getElementById("bgMusic").currentTime = 0;
-    }
+    function openStory() {
+    const story = document.getElementById("storyPage");
+    const music = document.getElementById("bgMusic");
+
+    story.classList.add("active");
+    music.volume = 0.3;
+    music.play().catch(err => {
+      console.log("Autoplay diblokir, user harus klik play:", err);
+    });
+  }
+
+  function closeStory() {
+    const story = document.getElementById("storyPage");
+    const music = document.getElementById("bgMusic");
+
+    story.classList.remove("active");
+    music.pause();
+    music.currentTime = 0;
+  }
   
 </script>
 </body>
