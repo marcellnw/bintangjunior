@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bintang Junior - Bimbel Calistung, English class & Tahfidz</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
@@ -18,14 +18,12 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  background: #f0f8ff;
+  overflow: hidden; /* Mengunci scrolling */
+  background: #f0f8ff; 
   color: #333;
   line-height: 1.6;
-  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --- HEADER --- */
@@ -58,30 +56,14 @@ header .brand img {
 header .brand span {
   font-size: 1.25rem;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 /* --- NAVIGATION --- */
 nav {
-  display: none; /* Default to hidden on mobile */
-  flex-direction: column;
-  gap: 1rem;
-  background: #004aad;
-  position: absolute;
-  top: 60px;
-  right: 15px;
-  width: 200px;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s, transform 0.3s;
-}
-
-nav.active {
   display: flex;
-  opacity: 1;
-  transform: translateY(0);
+  gap: 1.5rem;
+  align-items: center;
 }
 
 nav a {
@@ -90,6 +72,7 @@ nav a {
   font-size: 0.95rem;
   font-weight: 500;
   transition: 0.3s;
+  text-transform: capitalize;
 }
 
 nav a:hover {
@@ -97,46 +80,56 @@ nav a:hover {
 }
 
 .burger {
-  display: block; /* Show burger menu on mobile */
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.8rem;
-  cursor: pointer;
+  display: none;
 }
 
-@media (min-width: 768px) {
+/* Perbaikan untuk tampilan mobile (burger menu) */
+@media (max-width: 768px) {
   nav {
-    display: flex; /* Show navigation on desktop */
-    flex-direction: row;
-    position: static;
-    background: none;
-    box-shadow: none;
-    width: auto;
-    padding: 0;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: #004aad;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 0.3s;
+  }
+  nav.active {
+    display: flex;
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
   }
   .burger {
-    display: none; /* Hide burger menu on desktop */
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
   }
 }
 
-/* --- HERO SECTION --- */
-.hero {
-  position: relative;
+/* --- MAIN CONTENT CONTAINER --- */
+main {
   width: 100%;
-  height: calc(100vh - 60px);
-  background: url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250829110920961.jpg') no-repeat center center/cover;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
-  overflow: hidden;
+  position: relative;
+  background: url('https://raw.githubusercontent.com/marcellnw/bintangjunior/main/IMG_20250829110920961.jpg') no-repeat center center/cover;
 }
 
-.hero::before {
+main::before {
   content: '';
   position: absolute;
   top: 0;
@@ -156,105 +149,117 @@ nav a:hover {
   z-index: 1;
 }
 
-.hero-content {
+.content-wrapper {
   position: relative;
   z-index: 2;
-  padding: 2rem;
+  padding: 1rem; /* Padding dikurangi */
+  color: #fff;
+  max-width: 800px; /* Lebar maksimum wrapper dikurangi */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-}
-
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-}
-
-/* --- MAIN CONTENT CONTAINER --- */
-.container {
-  padding: 3rem 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* --- CONTACT SECTION --- */
-.contact-section {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.contact-section h2 {
-  font-size: 2rem;
-  color: #004aad;
-  margin-bottom: 2rem;
-}
-
-.contact-cards {
+.card-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem; /* Jarak antar card dikurangi */
+  width: 100%;
 }
 
 .card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px; /* Sudut lebih kecil */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Bayangan lebih halus */
+  padding: 2rem; /* Padding dikurangi */
   text-align: left;
-  transition: transform 0.3s, box-shadow 0.3s;
-  flex: 1 1 300px;
-  max-width: 350px;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  flex: 1 1 280px; /* Ukuran dasar card dikurangi */
+  max-width: 350px; /* Lebar maksimum card dikurangi */
+  color: #333;
+  border: 2px solid #ffb703;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -15px; /* Posisi dekorasi disesuaikan */
+  left: -15px;
+  width: 60px; /* Ukuran dekorasi dikurangi */
+  height: 60px;
+  background-color: #004aad;
+  transform: rotate(45deg);
+  border-radius: 8px;
+  opacity: 0.1;
+}
+.card::after {
+  content: '★';
+  position: absolute;
+  bottom: -5px; /* Posisi dekorasi disesuaikan */
+  right: -5px;
+  font-size: 4rem; /* Ukuran bintang dikurangi */
+  color: #ffb703;
+  opacity: 0.1;
+  transform: rotate(-20deg);
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px) scale(1.02); /* Efek hover dikurangi */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); /* Bayangan hover dikurangi */
 }
 
 .card h3 {
-  color: #ffb703;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  color: #004aad;
+  font-size: 1.5rem; /* Ukuran judul dikurangi */
+  margin-bottom: 1rem; /* Jarak bawah judul dikurangi */
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.card h3::after {
+  width: 50px; /* Ukuran garis bawah dikurangi */
+  height: 2px;
 }
 
 .card p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem; /* Jarak antar paragraf dikurangi */
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px; /* Jarak ikon-teks dikurangi */
+  font-size: 1rem; /* Ukuran teks dikurangi */
+  color: #555;
 }
 
 .card p i {
-  color: #004aad;
-  font-size: 1.2rem;
+  color: #ffb703;
+  font-size: 1.2rem; /* Ukuran ikon dikurangi */
+  min-width: 25px; /* Ukuran minimum ikon dikurangi */
+  text-align: center;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 1.5rem; /* Jarak antar ikon sosial media dikurangi */
+  margin-top: 1.5rem; /* Jarak atas social links dikurangi */
 }
 
 .social-links a {
   color: #004aad;
-  font-size: 2rem;
-  transition: color 0.3s;
+  font-size: 2.2rem; /* Ukuran ikon sosial media dikurangi */
+  transition: color 0.3s, transform 0.3s;
 }
 
 .social-links a:hover {
   color: #ffb703;
+  transform: scale(1.1);
 }
 
 /* --- FOOTER --- */
@@ -265,6 +270,10 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 footer p {
@@ -273,6 +282,7 @@ footer p {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  text-transform: capitalize;
 }
 
 footer i {
@@ -295,45 +305,35 @@ footer i {
     <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Logo%20Bintang%20Junior.png" alt="Logo" />
     <span>Bintang Junior</span>
   </div>
-  <button class="burger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
   <nav id="menu">
-    <a href="#about">Tentang Kami</a>
-    <a href="#contact">Kontak</a>
-    <a href="#program">Program</a>
+    <a href="index.html">Kembali</a>
+    <a href="bintangjunior.html">Program</a>
   </nav>
+  <button class="burger" aria-label="Toggle Menu">☰</button>
 </header>
 
-<section class="hero">
+<main>
   <div id="particles-js"></div>
-  <div class="hero-content" data-aos="fade-up">
-    <h1>Bimbingan Belajar Terbaik untuk Anak-Anak</h1>
-    <p>Kami hadir untuk membantu si kecil berprestasi sejak dini dengan cara yang ceria dan efektif.</p>
+  <div class="content-wrapper">
+    <div class="card-group">
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Informasi Kontak</h3>
+        <p data-aos="fade-left" data-aos-delay="300"><i class="bi bi-person-fill"></i> Ibu Ika</p>
+        <p data-aos="fade-left" data-aos-delay="400"><i class="bi bi-telephone-fill"></i> <a href="tel:+628117445700" style="color:inherit;text-decoration:none;">0811-7445-700</a></p>
+        <p data-aos="fade-left" data-aos-delay="500"><i class="bi bi-telephone-fill"></i> <a href="tel:+6282178987700" style="color:inherit;text-decoration:none;">0821-7898-7700</a></p>
+        <p data-aos="fade-left" data-aos-delay="600"><i class="bi bi-geo-alt-fill"></i> Jl. Sentot Ali Basa, Rt 10</p>
+        <p data-aos="fade-left" data-aos-delay="700">Kel. Payo Selincah, Kota Jambi</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Jejaring Sosial</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/bintangjunior.official?igsh=MWZkNjg3eWs4bjhpaw==" target="_blank" aria-label="Instagram" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.tiktok.com/@bintangjunior_jambi?_t=ZS-8zJ8w6tSy7W&_r=1" target="_blank" aria-label="TikTok" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-tiktok"></i></a>
+          <a href="https://wa.me/message/2W4FKC2VNC5HP1" target="_blank" aria-label="WhatsApp" data-aos="zoom-in" data-aos-delay="600"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
-
-<main class="container">
-  <section id="contact" class="contact-section" data-aos="fade-up">
-    <h2>Informasi dan Kontak</h2>
-    <div class="contact-cards">
-      <div class="card" data-aos="fade-right">
-        <h3>Hubungi Kami</h3>
-        <p><i class="bi bi-person-fill"></i>Ibu Ika</p>
-        <p><i class="bi bi-whatsapp"></i><a href="https://wa.me/628117445700" target="_blank" style="color:inherit;text-decoration:none;">0811-7445-700</a></p>
-        <p><i class="bi bi-telephone-fill"></i><a href="tel:+6282178987700" target="_blank" style="color:inherit;text-decoration:none;">0821-7898-7700</a></p>
-      </div>
-      <div class="card" data-aos="fade-left">
-        <h3>Alamat Kami</h3>
-        <p><i class="bi bi-geo-alt-fill"></i>Jl. Sentot Ali Basa, RT. 10</p>
-        <p>Kel. Payo Selincah, Kota Jambi</p>
-        <p><i class="bi bi-house-door-fill"></i>Lihat di Google Maps</p>
-      </div>
-    </div>
-    <div class="social-links" data-aos="zoom-in" data-aos-delay="400">
-      <a href="https://www.instagram.com/bintangjunior.official?igsh=MWZkNjg3eWs4bjhpaw==" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.tiktok.com/@bintangjunior_jambi?_t=ZS-8zJ8w6tSy7W&_r=1" target="_blank" aria-label="Tiktok"><i class="bi bi-tiktok"></i></a>
-      <a href="https://wa.me/message/2W4FKC2VNC5HP1" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -346,10 +346,14 @@ footer i {
   AOS.init({ duration: 800, once: true });
   const menu = document.getElementById("menu");
   const links = menu.querySelectorAll("a");
+  const burger = document.querySelector(".burger");
 
   function toggleMenu() {
     menu.classList.toggle("active");
   }
+
+  // Menambahkan event listener ke tombol burger
+  burger.addEventListener("click", toggleMenu);
 
   links.forEach(link => link.addEventListener("click", () => menu.classList.remove("active")));
 
