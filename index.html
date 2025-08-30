@@ -138,6 +138,8 @@ footer i{color:#ffb703;font-size:1rem;}
 </head>
 <body>
 
+      <audio id="bgMusic" src="https://raw.githubusercontent.com/marcellnw/Astravell-dialog-rp/main/ethereal-ambient-269037.mp3" autoplay loop></audio>
+  
   <header>
     <div class="brand">
       <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Logo%20Bintang%20Junior.png" alt="Logo" />
@@ -197,6 +199,19 @@ footer i{color:#ffb703;font-size:1rem;}
     },
     retina_detect:true
   });
+
+          // Mencoba memutar musik secara otomatis.
+        // Catatan: Ini kemungkinan besar akan diblokir oleh browser.
+        window.addEventListener('load', () => {
+            const music = document.getElementById('bgMusic');
+            if (music) {
+                music.volume = 0.5; // Mengatur volume agar tidak terlalu keras
+                music.play().catch(error => {
+                    console.log('Autoplay diblokir:', error);
+                    // Anda bisa menampilkan pesan ke pengguna di sini
+                });
+            }
+        });
 </script>
 </body>
 </html>
