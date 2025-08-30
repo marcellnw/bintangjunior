@@ -964,11 +964,9 @@ footer {
 
   <!-- ===== backsound ===== -->
     
-    <div class="story-page" id="storyPage">
-    <audio id="bgMusic" src="https://raw.githubusercontent.com/marcellnw/Astravell-dialog-rp/main/ethereal-ambient-269037.mp3" loop></audio>
-
-  
+   <audio id="bgMusic" src="https://raw.githubusercontent.com/marcellnw/Astravell-dialog-rp/main/ethereal-ambient-269037.mp3" autoplay loop></audio>
   <!-- Partikel Background -->
+  
   <div id="particles-js" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>
 
  <!-- ===== NAVBAR ===== -->
@@ -1218,25 +1216,18 @@ footer {
   });
 
   <!-- ===== backsound ===== -->
-      function openStory() {
-    const story = document.getElementById("storyPage");
-    const music = document.getElementById("bgMusic");
-
-    story.classList.add("active");
-    music.volume = 0.3;
-    music.play().catch(err => {
-      console.log("Autoplay diblokir, user harus klik play:", err);
-    });
-  }
-
-  function closeStory() {
-    const story = document.getElementById("storyPage");
-    const music = document.getElementById("bgMusic");
-
-    story.classList.remove("active");
-    music.pause();
-    music.currentTime = 0;
-  }
+              // Mencoba memutar musik secara otomatis.
+        // Catatan: Ini kemungkinan besar akan diblokir oleh browser.
+        window.addEventListener('load', () => {
+            const music = document.getElementById('bgMusic');
+            if (music) {
+                music.volume = 0.5; // Mengatur volume agar tidak terlalu keras
+                music.play().catch(error => {
+                    console.log('Autoplay diblokir:', error);
+                    // Anda bisa menampilkan pesan ke pengguna di sini
+                });
+            }
+        });
   
 </script>
 </body>
