@@ -173,6 +173,14 @@ nav a:hover {
     .hero p { font-size: 1.3rem; margin-bottom: 1.8rem; }
     .btn { padding: 1rem 2rem; background: #ffb703; color: #000; border-radius: 10px; text-decoration: none; font-weight: bold; transition: 0.3s; font-size: 1.1rem; }
     .btn:hover { background: #ffa500; transform: scale(1.05); }
+    
+    /* CUSTOM CSS: Untuk mengurangi jarak antar paragraf di hero */
+.hero-content p {
+  margin-bottom: 0.2rem; /* Mengurangi jarak di bawah setiap paragraf */
+}
+.hero-content p:last-of-type {
+  margin-bottom: 2.5rem; /* Mengembalikan jarak untuk tombol */
+}
 
     /* Section */
     section { padding: 4rem 2rem; max-width: 1200px; margin: auto; position: relative; }
@@ -314,11 +322,6 @@ nav a:hover {
     text-overflow: ellipsis;
   }
 }
-
-
-
-
-
 
     /* Promo (full-bleed background + overlay) */
 /* --- promo utama --- */
@@ -646,9 +649,10 @@ footer {
   <!-- Hero -->
   <section class="hero">
     <div data-aos="zoom-in">
-      <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Bintangjunior.png" alt="Logo Bintang Junior" class="hero-logo">
-      <h1>Bimbingan Belajar Terbaik untuk Masa Depan Cerah</h1>
-      <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang Junior.</p>
+      <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Bintangjunior.png" alt="Logo Bintang Junior" class="hero-logo"/>
+      <h1>Bimbingan Belajar Terbaik Untuk Masa Depan Cerah</h1>
+      <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang junior.</p>
+      <p>(Usia 3-6 tahun dan anak SD kelas 1 - kelas 6.)</p>
       <a href="#program" class="btn">Lihat Program</a>
     </div>
   </section>
