@@ -138,7 +138,12 @@ footer i{color:#ffb703;font-size:1rem;}
 </head>
 <body>
 
-      <audio id="bgMusic" src="https://raw.githubusercontent.com/marcellnw/Astravell-dialog-rp/main/ethereal-ambient-269037.mp3" autoplay loop></audio>
+      <audio 
+  id="bgMusic" 
+  src="https://github.com/marcellnw/bintangjunior/blob/main/Official%20Jingle%20Bintang%20Junior%20-%20Menjadi%20Bintang%20Junior.mp3?raw=true" 
+  autoplay 
+  loop>
+</audio>
   
   <header>
     <div class="brand">
@@ -205,7 +210,7 @@ footer i{color:#ffb703;font-size:1rem;}
         window.addEventListener('load', () => {
             const music = document.getElementById('bgMusic');
             if (music) {
-                music.volume = 0.5; // Mengatur volume agar tidak terlalu keras
+                music.volume = 0.1; // Mengatur volume agar tidak terlalu keras
                 music.play().catch(error => {
                     console.log('Autoplay diblokir:', error);
                     // Anda bisa menampilkan pesan ke pengguna di sini
