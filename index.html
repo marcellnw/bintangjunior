@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bintang Junior - Bimbel Calistung, English clas & Tahfidz</title>
+  <title>Twin Course - Bimbingan Belajar</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <style>
@@ -13,12 +13,12 @@
 html,body{
   width:100%;
   height:100%;
-  overflow:hidden; /* Mengunci scrolling */
+  overflow:hidden;
 }
 body{
   background:#fff;
   color:#333;
-  padding-top:60px; /* Jaga agar konten tidak tertutup header */
+  padding-top:60px;
   line-height:1.6;
   display: flex;
   flex-direction: column;
@@ -116,12 +116,11 @@ nav a:hover{color:#ffb703;}
   .hero h1{font-size:1.7rem;}
   .hero p{font-size:0.95rem;margin-bottom:2rem;}
 }
-/* CUSTOM CSS: Untuk mengurangi jarak antar paragraf di hero */
 .hero-content p {
-  margin-bottom: 0.2rem; /* Mengurangi jarak di bawah setiap paragraf */
+  margin-bottom: 0.2rem;
 }
 .hero-content p:last-of-type {
-  margin-bottom: 2.5rem; /* Mengembalikan jarak untuk tombol */
+  margin-bottom: 2.5rem;
 }
 
 /* FOOTER */
@@ -152,8 +151,8 @@ footer i{color:#ffb703;font-size:1rem;}
     </div>
     <button class="burger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
     <nav id="menu">
-      <a href="bintangjunior.html">Program</a>
-      <a href="kontak.html">Kontak</a>
+      <a href="#">Program</a>
+      <a href="#">Kontak</a>
     </nav>
   </header>
 
@@ -161,18 +160,17 @@ footer i{color:#ffb703;font-size:1rem;}
     <div id="particles-js"></div>
     <div class="hero-content" data-aos="zoom-in">
       <h1>Bimbingan Belajar Terbaik Untuk Masa Depan Cerah</h1>
-      <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Bintang junior.</p>
+      <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Twin Course.</p>
       <p>(Usia 3-6 tahun dan anak SD kelas 1 - kelas 6.)</p>
       <div class="btn-group">
-        <a href="bintangjunior.html" class="btn">Bintang junior</a>
-        <a href="go.html" class="btn">Let's Go</a>
-        <a href="https://wa.me/628117445700" class="btn">Daftar Online</a>
+        <a href="#program" class="btn">Program Kami</a>
+        <a href="https://wa.me/628117445700?text=Halo%20Twin%20Course%2C%20saya%20tertarik%20dengan%20program%20bimbingan%20belajar%20Anda." class="btn">Daftar Online</a>
       </div>
     </div>
   </section>
 
   <footer id="kontak">
-    <p>&copy; 2025 Bimbel Twin Course <i class=""></i></p>
+    <p>&copy; 2025 Bimbel Twin Course</p>
   </footer>
   
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -184,7 +182,7 @@ footer i{color:#ffb703;font-size:1rem;}
   function toggleMenu(){menu.classList.toggle("active");}
   links.forEach(link=>link.addEventListener("click",()=>menu.classList.remove("active")));
 
-  // Partikel lebih halus
+  // Partikel
   particlesJS("particles-js",{
     particles:{
       number:{value:60,density:{enable:true,value_area:800}},
@@ -206,18 +204,17 @@ footer i{color:#ffb703;font-size:1rem;}
     retina_detect:true
   });
 
-          // Mencoba memutar musik secara otomatis.
-        // Catatan: Ini kemungkinan besar akan diblokir oleh browser.
-        window.addEventListener('load', () => {
-            const music = document.getElementById('bgMusic');
-            if (music) {
-                music.volume = 0.5; // Mengatur volume agar tidak terlalu keras
-                music.play().catch(error => {
-                    console.log('Autoplay diblokir:', error);
-                    // Anda bisa menampilkan pesan ke pengguna di sini
-                });
-            }
-        });
+  // Autoplay musik akan diblokir oleh browser.
+  // Pengguna perlu berinteraksi dengan halaman (mis. mengklik tombol play) agar musik dapat diputar.
+  window.addEventListener('load', () => {
+      const music = document.getElementById('bgMusic');
+      if (music) {
+          music.volume = 0.5;
+          music.play().catch(error => {
+              console.log('Autoplay diblokir:', error);
+          });
+      }
+  });
 </script>
 </body>
 </html>
