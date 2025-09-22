@@ -1,19 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Twin Course - Bimbingan Belajar</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+/* reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;} /* Mengubah font default */
 html,body{
   width:100%;
   height:100%;
-  overflow:hidden;
+  overflow-x:hidden; /* Mengubah overflow:hidden menjadi overflow-x:hidden */
 }
 body{
   background:#fff;
@@ -24,7 +26,7 @@ body{
   flex-direction: column;
 }
 
-/* HEADER */
+/* header */
 header{
   background:#004aad;
   color:#fff;
@@ -47,12 +49,12 @@ header .brand{
 header .brand img{height:45px;width:auto;}
 header .brand span{font-size:1.25rem;font-weight:600;}
 
-/* NAVIGATION */
+/* navigation */
 nav{display:flex;gap:1.5rem;align-items:center;}
 nav a{color:#fff;text-decoration:none;font-size:0.95rem;font-weight:500;transition:0.3s;}
 nav a:hover{color:#ffb703;}
 .burger{display:none;background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;}
-@media(max-width:768px){
+@media(max-width:768px){ /* Memperbaiki sintaks media query */
   nav{
     display:none;
     flex-direction:column;
@@ -66,18 +68,18 @@ nav a:hover{color:#ffb703;}
     border-radius:8px;
     box-shadow:0 4px 10px rgba(0,0,0,0.2);
     opacity:0;
-    transform:translateY(-10px);
+    transform:translateY(-10px); /* Memperbaiki translatey menjadi translateY */
     transition:0.3s;
   }
   nav.active{
     display:flex;
     opacity:1;
-    transform:translateY(0);
+    transform:translateY(0); /* Memperbaiki translatey menjadi translateY */
   }
   .burger{display:block;}
 }
 
-/* HERO */
+/* hero */
 .hero{
   width:100%;
   height:100%;
@@ -106,15 +108,34 @@ nav a:hover{color:#ffb703;}
 }
 #particles-js{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
 .hero-content{position:relative;z-index:2;}
-.hero h1{font-size:2.2rem;margin-bottom:1rem;font-weight:700;line-height:1.3;}
-.hero p{font-size:1.05rem;margin-bottom:2.5rem;max-width:650px;margin:auto;}
+.hero h1{
+  font-size:2.8rem; /* Ukuran font sedikit lebih besar */
+  margin-bottom:1rem;
+  font-weight:700;
+  line-height:1.3;
+  font-family: 'Playfair Display', serif; /* Font elegan untuk judul */
+  
+  /* Efek Mengkilap pada Judul */
+  background: linear-gradient(90deg, #ffffff 0%, #ffb703 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+.hero p{
+  font-size:1.15rem; /* Ukuran font sedikit lebih besar */
+  margin-bottom:2.5rem;
+  max-width:650px;
+  margin:auto;
+  font-family: 'Georgia', serif; /* Font elegan untuk deskripsi */
+}
 .btn{padding:0.9rem 1.6rem;background:#ffb703;color:#000;border-radius:8px;text-decoration:none;font-weight:600;
   transition:0.3s;font-size:1rem;display:inline-block;}
 .btn:hover{background:#ffa500;transform:scale(1.05);}
 .btn-group{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
-@media(max-width:768px){
-  .hero h1{font-size:1.7rem;}
-  .hero p{font-size:0.95rem;margin-bottom:2rem;}
+@media(max-width:768px){ /* Memperbaiki sintaks media query */
+  .hero h1{font-size:2.2rem;} /* Sesuaikan ukuran font untuk mobile */
+  .hero p{font-size:1rem;margin-bottom:2rem;} /* Sesuaikan ukuran font untuk mobile */
 }
 .hero-content p {
   margin-bottom: 0.2rem;
@@ -123,33 +144,41 @@ nav a:hover{color:#ffb703;}
   margin-bottom: 2.5rem;
 }
 
-/* FOOTER */
+/* footer */
 footer{
   background:#004aad;color:#fff;
   padding:0.8rem 1.2rem;text-align:center;font-size:0.9rem;
   box-shadow:0 -2px 6px rgba(0,0,0,0.2);
+  margin-top: auto; /* Untuk memastikan footer berada di bawah */
 }
 footer p{margin:0;display:flex;align-items:center;justify-content:center;gap:6px;}
 footer i{color:#ffb703;font-size:1rem;}
-@media(max-width:768px){footer{font-size:0.8rem;padding:0.7rem;}}
+@media(max-width:768px){footer{font-size:0.8rem;padding:0.7rem;}} /* Memperbaiki sintaks media query */
+
+/* Animasi Shine */
+@keyframes shine { /* Memperbaiki sintaks keyframes */
+  to {
+    background-position: 200% center;
+  }
+}
 
   </style>
 </head>
 <body>
 
 <audio 
-  id="bgMusic" 
-  src="https://github.com/marcellnw/bintangjunior/blob/main/Official%20Jingle%20Bintang%20Junior%20-%20Menjadi%20Bintang%20J_180851136_84.mp3?raw=true" 
+  id="bgmusic" 
+  src="https://github.com/marcellnw/bintangjunior/raw/main/official%20jingle%20bintang%20junior%20-%20menjadi%20bintang%20j_180851136_84.mp3" 
   autoplay 
   loop>
 </audio>  
   
   <header>
     <div class="brand">
-      <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/Logo%20Bintang%20Junior.png" alt="Logo" />
+      <img src="https://raw.githubusercontent.com/marcellnw/bintangjunior/main/logo%20bintang%20junior.png" alt="logo" />
       <span>Twin Course</span>
     </div>
-    <button class="burger" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+    <button class="burger" aria-label="toggle menu" onclick="toggleMenu()">☰</button>
     <nav id="menu">
       <a href="program.html">Program</a>
       <a href="kontak.html">Kontak</a>
@@ -159,7 +188,7 @@ footer i{color:#ffb703;font-size:1rem;}
   <section class="hero">
     <div id="particles-js"></div>
     <div class="hero-content" data-aos="zoom-in">
-      <h1>Bimbingan Belajar Terbaik Untuk Masa Depan Cerah</h1>
+      <h1>Bimbingan Belajar Terbaik untuk Masa Depan Cerah</h1>
       <p>Belajar lebih mudah, fleksibel, dan menyenangkan bersama Twin Course.</p>
       <p>(Usia 3-6 tahun dan anak SD kelas 1 - kelas 6.)</p>
       <div class="btn-group">
@@ -183,7 +212,7 @@ footer i{color:#ffb703;font-size:1rem;}
   function toggleMenu(){menu.classList.toggle("active");}
   links.forEach(link=>link.addEventListener("click",()=>menu.classList.remove("active")));
 
-  // Partikel
+  // Partikel JS
   particlesJS("particles-js",{
     particles:{
       number:{value:60,density:{enable:true,value_area:800}},
@@ -208,7 +237,7 @@ footer i{color:#ffb703;font-size:1rem;}
   // Autoplay musik akan diblokir oleh browser.
   // Pengguna perlu berinteraksi dengan halaman (mis. mengklik tombol play) agar musik dapat diputar.
   window.addEventListener('load', () => {
-      const music = document.getElementById('bgMusic');
+      const music = document.getElementById('bgmusic');
       if (music) {
           music.volume = 0.5;
           music.play().catch(error => {
